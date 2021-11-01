@@ -9,4 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "UnimApp"
 include ':app'
 include ':common'
-include ':myapplication'
+include ':data'
+include ':domain'

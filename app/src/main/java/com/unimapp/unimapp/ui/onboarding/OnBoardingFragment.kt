@@ -4,25 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.view.size
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.unimapp.common.extensions.onClick
 import com.unimapp.unimapp.R
 import com.unimapp.unimapp.core.BaseFragment
+import com.unimapp.unimapp.core.BaseViewModel
 import com.unimapp.unimapp.databinding.FragmentOnboardingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
+class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding>() {
 
-class OnBoardingFragment : BaseFragment<BaseViewModel, FragmentOnboardingBinding>() {
     private var onboardingAdapter: OnboardingAdapter? = null
+
+    override fun getViewModelClass() = OnBoardingViewModel::class.java
 
     override val onViewBinding: (LayoutInflater, ViewGroup?, Boolean) -> FragmentOnboardingBinding
         get() = FragmentOnboardingBinding::inflate
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,6 +51,7 @@ class OnBoardingFragment : BaseFragment<BaseViewModel, FragmentOnboardingBinding
         binding.skipButton.onClick {
             navigateToSingIn()
         }
+        viewmodel.setOnBoardingLookStatus(true)
     }
 
     private fun handleButtonAction(position: Int) {
@@ -54,9 +59,9 @@ class OnBoardingFragment : BaseFragment<BaseViewModel, FragmentOnboardingBinding
             binding.buttonOnBoardingAction.setText(R.string.button_title_done)
     }
 
-    fun navigateToSingIn() {
-        findNavController().navigate(R.id.signInFragment)
-        Toast.makeText(context, "Navigating", Toast.LENGTH_LONG).show()
+    private fun navigateToSingIn() {
+        viewmodel.setOnBoardingLookStatus(true)
+        findNavController().navigate(R.id.action_onBoardingFragment_to_authorization_graph)
     }
 
     private fun setOnboadingIndicator() {

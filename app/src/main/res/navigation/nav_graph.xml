@@ -9,6 +9,13 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.unimapp.unimapp.ui.onboarding.OnBoardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_authorization_graph"
+            app:destination="@id/authorization_graph"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
     <include app:graph="@navigation/authorization_graph" />
 </navigation>
