@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<ViewModel : BaseViewModel, VB : ViewBinding> : Fragment() {
+abstract class BaseFragment<ViewModel : BaseViewModel<State>, VB : ViewBinding, State> : Fragment() {
     protected abstract val onViewBinding: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
     protected lateinit var viewmodel: ViewModel
@@ -16,6 +16,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, VB : ViewBinding> : Fragm
     lateinit var binding: VB
 
     protected abstract fun getViewModelClass(): Class<ViewModel>
+
+    abstract fun onStateUpdate(state: State)
 
     private fun initViewModel() {
         viewmodel = ViewModelProvider(requireActivity()).get(getViewModelClass())
@@ -43,6 +45,13 @@ abstract class BaseFragment<ViewModel : BaseViewModel, VB : ViewBinding> : Fragm
         super.onViewCreated(view, savedInstanceState)
         onInitView(binding)
         onViewInit(binding)
+        startObserver()
+    }
+
+    private fun startObserver() {
+        viewmodel.state.observe(requireActivity()) {
+            onStateUpdate(state = it)
+        }
     }
 
     inline fun <R> withBinding(block: VB.() -> R): R {

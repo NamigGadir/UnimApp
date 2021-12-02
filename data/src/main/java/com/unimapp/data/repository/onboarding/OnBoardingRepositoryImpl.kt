@@ -1,8 +1,9 @@
 package com.unimapp.data.repository.onboarding
 
-import com.unimapp.data.repository.di.annotations.MainSharedPrefs
-import com.unimapp.data.repository.prefs.base.BasePreferences
-import com.unimapp.data.repository.util.SharedConstants
+import com.unimapp.data.di.annotations.MainSharedPrefs
+import com.unimapp.data.prefs.base.BasePreferences
+import com.unimapp.data.util.SharedConstants
+import com.unimapp.domain.repository.OnBoardingRepository
 import javax.inject.Inject
 
 class OnBoardingRepositoryImpl @Inject constructor(

@@ -19,9 +19,16 @@ android {
     }
 
     buildTypes {
+        def SERVER_URL = "SERVER_URL"
+
         release {
+            buildConfigField "String", SERVER_URL, "\"http://xnxx.com\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", SERVER_URL, "\"http://xnxx.com\""
         }
     }
     compileOptions {
@@ -48,5 +55,16 @@ dependencies {
 
     //Security
     implementation "androidx.security:security-crypto:1.1.0-alpha03"
+
+    // Retrofit with Moshi Converter
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-moshi:2.9.0"
+
+    // Moshi
+    api "com.squareup.moshi:moshi:1.12.0"
+    api "com.squareup.moshi:moshi-kotlin:1.12.0"
+    api "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
+    implementation(project("::domain"))
 
 }

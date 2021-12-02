@@ -1,14 +1,14 @@
 package com.unimapp.unimapp
 
-import com.unimapp.data.repository.onboarding.OnBoardingRepositoryImpl
+import com.unimapp.domain.repository.OnBoardingRepository
 import com.unimapp.unimapp.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val onBoardingRepositoryImpl: OnBoardingRepositoryImpl) : BaseViewModel() {
+class MainViewModel @Inject constructor(private val onBoardingRepository: OnBoardingRepository) : BaseViewModel<Any>() {
 
     fun isOnBoardFinished(): Boolean {
-        return onBoardingRepositoryImpl.isOnBoardingFinished()
+        return onBoardingRepository.isOnBoardingFinished()
     }
 }

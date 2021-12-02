@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Unim main colors -->
+    <color name="unim_main_color">#1383EA</color>
+    <color name="unim_secondary_color">#2B221B</color>
+    <color name="unim_active_color">#EFA412</color>
+    <color name="unim_placeholder_color">#E0DCCF</color>
+    <color name="unim_blue_main_color">#1250EF</color>
+    <color name="dark_gray">#9BA9A6</color>
+    <color name="stroke_color">#2B221B</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

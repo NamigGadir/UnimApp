@@ -5,15 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentContainerView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.unimapp.unimapp.databinding.ActivityMainBinding
+import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var mainActivityMainBinding: ActivityMainBinding
-    private val mainViewModel by viewModels<MainViewModel>()
+
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

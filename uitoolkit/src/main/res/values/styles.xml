@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ThemeOverlay.BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.BottomSheet</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="Widget.BottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay">
+        <item name="cornerSize">24dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+</resources>

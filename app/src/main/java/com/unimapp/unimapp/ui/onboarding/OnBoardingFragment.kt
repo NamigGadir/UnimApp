@@ -15,10 +15,11 @@ import com.unimapp.unimapp.R
 import com.unimapp.unimapp.core.BaseFragment
 import com.unimapp.unimapp.core.BaseViewModel
 import com.unimapp.unimapp.databinding.FragmentOnboardingBinding
+import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding>() {
+class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, AuthState>() {
 
     private var onboardingAdapter: OnboardingAdapter? = null
 
@@ -109,6 +110,10 @@ class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingB
         onBoardingItems.add(itemPayOnline)
         onBoardingItems.add(itemEatTogether)
         onboardingAdapter = OnboardingAdapter(onBoardingItems)
+    }
+
+    override fun onStateUpdate(state: AuthState) {
+
     }
 
 }
