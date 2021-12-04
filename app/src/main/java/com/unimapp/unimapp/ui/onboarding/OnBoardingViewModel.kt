@@ -9,7 +9,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
     private val onBoardingRepository: OnBoardingRepository
-) : BaseViewModel<AuthState>() {
+) : BaseViewModel<AuthState, Unit>() {
 
     fun setOnBoardingLookStatus(status: Boolean) {
         onBoardingRepository.setOnBoardingLookStatus(status)

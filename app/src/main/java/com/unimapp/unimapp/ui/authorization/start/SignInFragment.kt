@@ -12,7 +12,7 @@ import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInFragment : BaseFragment<SignInViewModel, FragmentSignInBinding, AuthState>() {
+class SignInFragment : BaseFragment<SignInViewModel, FragmentSignInBinding, AuthState, Unit>() {
 
     override fun getViewModelClass() = SignInViewModel::class.java
 

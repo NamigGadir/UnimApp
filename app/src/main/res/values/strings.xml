@@ -41,6 +41,14 @@
     <string name="continue_button">Continue</string>
 
     <!-- End region-->
+    <!-- SignIn SignUp Strings-->
+    <string name="set_password">Set Password</string>
+    <string name="password_retype_hint">Retype Password</string>
+    <string name="uppercase_checker_title">At least 1 uppercase letter;</string>
+    <string name="symbol_checker_title">At least 8 symbol;</string>
+    <string name="character_checker_title">Must be without . , _ - / %;</string>
+    <!-- End region-->
+
 
 
 </resources>

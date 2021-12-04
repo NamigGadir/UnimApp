@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_graph"
-    app:startDestination="@id/signUpFragment">
+    app:startDestination="@id/setPasswordFragment">
 
     <fragment
         android:id="@+id/signInFragment"
@@ -27,4 +27,9 @@
         android:name="com.unimapp.unimapp.ui.authorization.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/setPasswordFragment"
+        android:name="com.unimapp.unimapp.ui.authorization.setpassword.SetPasswordFragment"
+        android:label="fragment_set_password"
+        tools:layout="@layout/fragment_set_password" />
 </navigation>

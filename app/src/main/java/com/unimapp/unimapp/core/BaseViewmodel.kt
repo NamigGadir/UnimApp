@@ -4,19 +4,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.unimapp.common.extensions.SingleLiveEvent
 
-abstract class BaseViewModel<T> : ViewModel() {
+abstract class BaseViewModel<State, Event> : ViewModel() {
 
-    val state = MutableLiveData<T>()
+    val state = MutableLiveData<State>()
 
-    val event = SingleLiveEvent<T>()
+    val event = SingleLiveEvent<Event>()
 
-    fun postState(value: T) {
+    fun postState(value: State) {
         value?.let {
             state.postValue(it)
         }
     }
 
-    fun postEvent(value: T) {
+    fun postEvent(value: Event) {
         value?.let {
             event.postValue(it)
         }

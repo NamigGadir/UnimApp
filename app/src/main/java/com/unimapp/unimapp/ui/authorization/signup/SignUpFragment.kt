@@ -25,7 +25,7 @@ import com.unimapp.unimapp.databinding.FragmentSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, SignUpState>() {
+class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, SignUpState, Unit>() {
 
     override fun getViewModelClass() = SignUpViewModel::class.java
 

@@ -44,10 +44,23 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="Unim_Text_H1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_32sp</item>
+        <item name="android:textColor">@color/unim_secondary_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="Unim_Text_H4">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_20sp</item>
         <item name="android:textColor">@color/unim_secondary_color</item>
+    </style>
+
+    <style name="Unim_Text_H6">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Unim_Text_32sp">

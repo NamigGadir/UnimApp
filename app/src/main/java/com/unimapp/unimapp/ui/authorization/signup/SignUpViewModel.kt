@@ -6,8 +6,11 @@ import com.unimapp.uitoolkit.tagview.TagItem
 import com.unimapp.uitoolkit.tagview.tagItem
 import com.unimapp.unimapp.R
 import com.unimapp.unimapp.core.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SignUpViewModel : BaseViewModel<SignUpState>() {
+@HiltViewModel
+class SignUpViewModel @Inject constructor() : BaseViewModel<SignUpState, Unit>() {
 
     val interests by lazy { getInterestList() }
     val universities by lazy { getUniversitiesList() }

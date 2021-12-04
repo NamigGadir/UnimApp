@@ -8,7 +8,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SignInWithEmailViewModel @Inject constructor(
     authRepository: AuthRepository
-) : BaseViewModel<AuthState>() {
+) : BaseViewModel<AuthState, Unit>() {
 
     fun signIn() {
         postState(AuthState.SignInState(true))

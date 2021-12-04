@@ -19,7 +19,7 @@ import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, AuthState>() {
+class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, AuthState, Unit>() {
 
     private var onboardingAdapter: OnboardingAdapter? = null
 

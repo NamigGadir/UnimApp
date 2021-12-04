@@ -8,7 +8,7 @@ import com.unimapp.unimapp.databinding.SignInWithEmailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInWithEmailFragment : BaseFragment<SignInWithEmailViewModel, SignInWithEmailFragmentBinding, AuthState>() {
+class SignInWithEmailFragment : BaseFragment<SignInWithEmailViewModel, SignInWithEmailFragmentBinding, AuthState, Unit>() {
 
     override fun getViewModelClass() = SignInWithEmailViewModel::class.java
 

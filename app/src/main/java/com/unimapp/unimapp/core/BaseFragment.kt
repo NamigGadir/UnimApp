@@ -1,5 +1,6 @@
 package com.unimapp.unimapp.core
 
+import android.media.metrics.Event
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<ViewModel : BaseViewModel<State>, VB : ViewBinding, State> : Fragment() {
+abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBinding, State, Event> : Fragment() {
     protected abstract val onViewBinding: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
     protected lateinit var viewmodel: ViewModel
@@ -17,7 +18,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State>, VB : ViewBinding, 
 
     protected abstract fun getViewModelClass(): Class<ViewModel>
 
-    abstract fun onStateUpdate(state: State)
+    open fun onStateUpdate(state: State) {}
+
+    open fun onEventUpdate(event: Event) {}
 
     private fun initViewModel() {
         viewmodel = ViewModelProvider(requireActivity()).get(getViewModelClass())
@@ -51,6 +54,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State>, VB : ViewBinding, 
     private fun startObserver() {
         viewmodel.state.observe(requireActivity()) {
             onStateUpdate(state = it)
+        }
+        viewmodel.event.observe(requireActivity()) {
+            onEventUpdate(event = it)
         }
     }
 
