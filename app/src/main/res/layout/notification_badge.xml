@@ -1,0 +1,26 @@
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Space
+            android:id="@+id/container_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/notifications_badge"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:textSize="8sp"
+            android:layout_marginBottom="16dp"
+            android:layout_toEndOf="@id/container_center"
+            android:background="@drawable/ic_new_notification"
+            android:gravity="center"
+            android:textColor="@color/white"
+            tools:ignore="SmallSp" />
+    </RelativeLayout>
+</merge>

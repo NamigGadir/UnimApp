@@ -11,4 +11,9 @@ class MainViewModel @Inject constructor(private val onBoardingRepository: OnBoar
     fun isOnBoardFinished(): Boolean {
         return onBoardingRepository.isOnBoardingFinished()
     }
+
+    fun isRegisteredUser(): Boolean {
+        return true
+    }
+
 }
