@@ -23,7 +23,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
     open fun onEventUpdate(event: Event) {}
 
     private fun initViewModel() {
-        viewmodel = ViewModelProvider(requireActivity()).get(getViewModelClass())
+        viewmodel = ViewModelProvider(this)[getViewModelClass()]
     }
 
     protected open val onViewInit: VB.() -> Unit = {

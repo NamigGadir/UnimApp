@@ -22,4 +22,18 @@
     <include app:graph="@navigation/search_nav_graph" />
     <include app:graph="@navigation/notifications_nav_graph" />
     <include app:graph="@navigation/profile_nav_graph" />
+    <fragment
+        android:id="@+id/addPostFragment"
+        android:name="com.unimapp.unimapp.ui.main.addpost.AddPostFragment"
+        android:label="fragment_add_post"
+        tools:layout="@layout/fragment_add_post">
+        <action
+            android:id="@+id/action_addPostFragment_to_tagFriendFragment"
+            app:destination="@id/tagFriendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tagFriendFragment"
+        tools:layout="@layout/fragment_tag_friend"
+        android:name="com.unimapp.unimapp.ui.main.addpost.TagFriendFragment"
+        android:label="TagFriendFragment" />
 </navigation>

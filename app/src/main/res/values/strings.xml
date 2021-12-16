@@ -48,6 +48,16 @@
     <string name="symbol_checker_title">At least 8 symbol;</string>
     <string name="character_checker_title">Must be without . , _ - / %;</string>
     <!-- End region-->
+    <!-- Add Post Strings-->
+    <string name="drafts_button">Drafts</string>
+    <string name="post_button">Post</string>
+    <string name="tag_students">Tag Students</string>
+    <string name="clear_all">Clear all</string>
+    <string name="done">Done</string>
+    <string name="tagged_peers">Tagged Peers</string>
+    <string name="recent_tags">Recents</string>
+    <string name="peers">Peers</string>
+    <!-- End region-->
 
 
 </resources>

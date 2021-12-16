@@ -8,4 +8,19 @@
         <attr name="textPaddingTop" format="dimension" />
         <attr name="textPaddingBottom" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="ImageResourceView">
+        <attr name="image" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FileResourceView">
+        <attr name="document_name" format="string" />
+        <attr name="document_size" format="string" />
+        <attr name="document_logo" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LinkResourceView">
+        <attr name="link_title" format="string" />
+        <attr name="link" format="string" />
+        <attr name="link_image" format="reference" />
+    </declare-styleable>
 </resources>
