@@ -9,5 +9,8 @@ class HomePageViewModel @Inject constructor(
 
 ) : BaseViewModel<Unit, Unit>() {
 
+    fun loadFeed() {
+
+    }
 
 }

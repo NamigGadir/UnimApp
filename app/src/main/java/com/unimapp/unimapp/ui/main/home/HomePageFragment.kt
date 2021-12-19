@@ -18,6 +18,8 @@ class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding
 
 
     override val onViewInit: FragmentHomePageBinding.() -> Unit = {
-
+        val adapter = FeedAdapter()
+        feedList.adapter = adapter
+        adapter.submitList(listOf("SAadssad", "sdasdasd", "asdasdasd", "asdasdasd", "asdasdasd"))
     }
 }

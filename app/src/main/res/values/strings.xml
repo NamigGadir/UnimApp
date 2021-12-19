@@ -58,6 +58,11 @@
     <string name="recent_tags">Recents</string>
     <string name="peers">Peers</string>
     <!-- End region-->
-
+    <!-- Add Post Strings-->
+    <string name="with_feed">with</string>
+    <string name="reaction_star">Like</string>
+    <string name="reaction_comment">Comment</string>
+    <string name="reaction_spread">Spread</string>
+    <!-- End region-->
 
 </resources>

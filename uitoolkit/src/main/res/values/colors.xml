@@ -13,4 +13,6 @@
     <color name="stroke_color">#2B221B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="feed_divider_color">#DADADA</color>
+    <color name="stroke_color_alpha40">#662B221B</color>
 </resources>
