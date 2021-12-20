@@ -10,7 +10,9 @@ import com.unimapp.domain.entities.feed.Feed
 import com.unimapp.domain.entities.feed.FeedType
 import com.unimapp.unimapp.R
 import com.unimapp.uitoolkit.base.BaseAdapter
+import com.unimapp.uitoolkit.databinding.FeedLinkItemBinding
 import com.unimapp.uitoolkit.list_item.FeedImageView
+import com.unimapp.uitoolkit.list_item.FeedLinkView
 import com.unimapp.uitoolkit.list_item.FeedResourceView
 import com.unimapp.unimapp.databinding.FeedListMainItemBinding
 
@@ -74,6 +76,11 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
                         mFeedAdapterActionListener?.onDownloadImage(id, location)
                     }
                     view.setResource(FeedResourceView.FeedResource(1, "Myfile.pdf", "1.44 MB", "https://yeniemlak.az/get-img/10122021W6898505.jpg"))
+                    view
+                }
+
+                FeedType.LINK -> {
+                    val view = FeedLinkView(context)
                     view
                 }
                 else -> null
