@@ -67,6 +67,10 @@ class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding
         showToast("$reactionPosition  $feedId")
     }
 
+    override fun onDownloadImage(id: Long, location: String) {
+        showToast(location)
+    }
+
     override fun onStateUpdate(state: HomePageState) {
         when (state) {
             is HomePageState.FeedList -> {

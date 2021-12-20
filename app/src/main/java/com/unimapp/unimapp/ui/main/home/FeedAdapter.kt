@@ -11,6 +11,7 @@ import com.unimapp.domain.entities.feed.FeedType
 import com.unimapp.unimapp.R
 import com.unimapp.uitoolkit.base.BaseAdapter
 import com.unimapp.uitoolkit.list_item.FeedImageView
+import com.unimapp.uitoolkit.list_item.FeedResourceView
 import com.unimapp.unimapp.databinding.FeedListMainItemBinding
 
 class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, FeedAdapter.FeedViewHolder>() {
@@ -35,7 +36,7 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
         mFeedAdapterActionListener = feedListener
     }
 
-    class FeedViewHolder(val feedListMainItemBinding: FeedListMainItemBinding) : RecyclerView.ViewHolder(feedListMainItemBinding.root) {
+    inner class FeedViewHolder(val feedListMainItemBinding: FeedListMainItemBinding) : RecyclerView.ViewHolder(feedListMainItemBinding.root) {
         fun bind(feed: Feed) {
             val list = arrayListOf(R.drawable.ic_reaction_love, R.drawable.ic_reaction_cry, R.drawable.ic_reaction_star)
             feedListMainItemBinding.reactionView.setActions(list)
@@ -67,6 +68,14 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
                     view.setImages(listOf("https://yeniemlak.az/get-img/10122021W6898505.jpg"))
                     view
                 }
+                FeedType.DOC -> {
+                    val view = FeedResourceView(context)
+                    view.setOnDownload { id, location ->
+                        mFeedAdapterActionListener?.onDownloadImage(id, location)
+                    }
+                    view.setResource(FeedResourceView.FeedResource(1, "Myfile.pdf", "1.44 MB", "https://yeniemlak.az/get-img/10122021W6898505.jpg"))
+                    view
+                }
                 else -> null
             }
 
@@ -76,5 +85,6 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
     interface FeedAdapterActionListener {
         fun onReactionClicked()
         fun onSelectedReaction(reactionPosition: Int, feedId: Int)
+        fun onDownloadImage(id: Long, location: String)
     }
 }

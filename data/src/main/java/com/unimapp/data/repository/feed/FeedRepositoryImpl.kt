@@ -15,9 +15,9 @@ class FeedRepositoryImpl @Inject constructor() : FeedRepository {
     }
 
     private val list = listOf<Feed>(
-        Feed(FeedType.SINGLE_IMAGE),
-        Feed(FeedType.MULTIPLE_IMAGE),
         Feed(FeedType.DOC),
+        Feed(FeedType.MULTIPLE_IMAGE),
+        Feed(FeedType.SINGLE_IMAGE),
         Feed(FeedType.SIMPLE),
         Feed(FeedType.SIMPLE),
         Feed(FeedType.SIMPLE),

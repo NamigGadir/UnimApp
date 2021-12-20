@@ -28,7 +28,7 @@ fun View.invisible() {
 fun View.getString(@StringRes resId: Int) = context.getString(resId)
 
 
-fun View.showPopupMenu(menu: Int, onMenuItemClick: (MenuItem) -> Boolean, invisibleItems: List<Int>?=null) {
+fun View.showPopupMenu(menu: Int, onMenuItemClick: (MenuItem) -> Boolean, invisibleItems: List<Int>? = null) {
     PopupMenu(context, this).apply {
         inflate(menu)
         invisibleItems?.map {
@@ -41,7 +41,7 @@ fun View.showPopupMenu(menu: Int, onMenuItemClick: (MenuItem) -> Boolean, invisi
 }
 
 
-fun View.addBorder(@ColorRes solidColor: Int? = null, @ColorRes strokeColor: Int? = null, radius: Float? = null, strokeWidth: Int) {
+fun View.addBorder(@ColorRes solidColor: Int? = null, @ColorRes strokeColor: Int? = null, radius: Float? = null, strokeWidth: Int = 0) {
     val border = GradientDrawable()
     solidColor?.let { border.setColor(ContextCompat.getColor(context, solidColor)) }
     strokeColor?.let { border.setStroke(strokeWidth, ContextCompat.getColor(context, strokeColor)) }
