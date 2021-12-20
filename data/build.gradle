@@ -70,4 +70,8 @@ dependencies {
 
     // Link retriever
     implementation 'org.jsoup:jsoup:1.13.1'
+
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC3'
+
 }

@@ -1,4 +1,4 @@
-package com.unimapp.unimapp.core
+package com.unimapp.uitoolkit.base
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter

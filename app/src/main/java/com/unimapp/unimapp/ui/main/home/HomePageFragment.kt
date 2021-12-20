@@ -1,15 +1,24 @@
 package com.unimapp.unimapp.ui.main.home
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.unimapp.common.extensions.underline
+import android.widget.ImageView
+import com.github.pgreze.reactions.ReactionPopup
+import com.github.pgreze.reactions.dsl.reactionConfig
+import com.github.pgreze.reactions.dsl.reactions
+import com.unimapp.unimapp.R
 import com.unimapp.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentHomePageBinding
-import com.unimapp.unimapp.databinding.SignInWithEmailFragmentBinding
 import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import com.unimapp.unimapp.ui.authorization.siginwithemail.SignInWithEmailViewModel
+import android.view.View
+import android.widget.Toast
+import com.unimapp.common.extensions.showToast
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding, Unit, Unit>() {
+@AndroidEntryPoint
+class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
 
     override fun getViewModelClass() = HomePageViewModel::class.java
 
@@ -17,9 +26,52 @@ class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding
         get() = FragmentHomePageBinding::inflate
 
 
+    private val popupReaction by lazy {
+        val reactionStrings = arrayOf("like", "love", "laugh", "wow", "sad", "angry", "dsff", "sdfsdf", "sdfsdfsdf", "sdfsdfsdf")
+        val config = reactionConfig(requireContext()) {
+            reactions {
+                resId { R.drawable.ic_reaction_star }
+                resId { R.drawable.ic_reaction_love }
+                resId { R.drawable.ic_reaction_celebrate }
+                resId { R.drawable.ic_reaction_haha }
+                resId { R.drawable.ic_reaction_cool }
+                resId { R.drawable.ic_reaction_omg }
+                resId { R.drawable.ic_reaction_cry }
+                resId { R.drawable.ic_reaction_angry }
+            }
+            withReactionTexts { position ->
+                reactionStrings[position]
+            }
+            popupAlpha = 255
+            popupMargin = context.resources.getDimensionPixelSize(R.dimen._28sdp)
+            reactionSize = context.resources.getDimensionPixelSize(R.dimen._28sdp)
+            horizontalMargin = context.resources.getDimensionPixelSize(R.dimen._16sdp)
+            withPopupColor(Color.WHITE)
+        }
+        ReactionPopup(requireContext(), config)
+    }
+
+    private val adapter by lazy { FeedAdapter(popupReaction) }
+
     override val onViewInit: FragmentHomePageBinding.() -> Unit = {
-        val adapter = FeedAdapter()
         feedList.adapter = adapter
-        adapter.submitList(listOf("SAadssad", "sdasdasd", "asdasdasd", "asdasdasd", "asdasdasd"))
+        adapter.setFeedActionListener(this@HomePageFragment)
+        viewmodel.loadFeed()
+    }
+
+    override fun onReactionClicked() {
+
+    }
+
+    override fun onSelectedReaction(reactionPosition: Int, feedId: Int) {
+        showToast("$reactionPosition  $feedId")
+    }
+
+    override fun onStateUpdate(state: HomePageState) {
+        when (state) {
+            is HomePageState.FeedList -> {
+                adapter.submitList(state.feedList)
+            }
+        }
     }
 }
