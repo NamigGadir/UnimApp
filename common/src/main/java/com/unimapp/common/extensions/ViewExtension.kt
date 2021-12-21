@@ -8,6 +8,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
+import androidx.viewbinding.ViewBinding
 
 fun Button.onClick(listener: View.OnClickListener) {
     this.setOnClickListener(listener)
@@ -47,4 +48,8 @@ fun View.addBorder(@ColorRes solidColor: Int? = null, @ColorRes strokeColor: Int
     strokeColor?.let { border.setStroke(strokeWidth, ContextCompat.getColor(context, strokeColor)) }
     radius?.let { border.cornerRadius = radius }
     background = border
+}
+
+fun ViewBinding.getString(@StringRes stringResourceId: Int): String {
+    return root.context.getString(stringResourceId)
 }

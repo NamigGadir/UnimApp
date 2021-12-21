@@ -3,12 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.search.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="fsdfsdf sdf ds fsdfjndsfksdnfkdsnfksdf sdjfnskjdnf
+dflksdflkjsdfjsdjflsjdflkjsdlkfjdslkfjlksdjflksjdlkfjsdlkfjsd fsdlkfnsdlkflksdf
+sdlfnsldkflksdnflkjsdlkfjslkdf
+sdfnslkdflksjdfljslkdjflksdjflkjsdlkfjslkdfjlksdjflksdjflkjsdlkfjslkdfmlksdfsdfsdf
+sdfnsdfjlsdkmf sdlnsd skdnflkn sdjv sdsf sdf ds fkjsdf kdsnfds fkds fkjsdf
+sdlfnsdkfnsd fsdf sldfsdlf ldsfnlksndflknsd fsdfnlksdnf sdf s
+sld fnsld flsd lkfsdlfn slkdfm lsdflkd nflksd f dsfdflsd flsdf dsfdsf
+s dlfsdjf ds fkdsnf kjnds fkndslkf dslf ndsf nlksfdlknlkn fdl
+l sdfnsldf nlsdnflndslfknsdlkfn lksd nflksndflk ndslk nflkdsn lknslkdf nkdlf nkldn lknf lknds f
+" />
 
 </FrameLayout>

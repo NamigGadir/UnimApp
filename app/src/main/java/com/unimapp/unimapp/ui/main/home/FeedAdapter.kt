@@ -4,8 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.github.pgreze.reactions.ReactionPopup
+import com.unimapp.common.extensions.getString
+import com.unimapp.common.extensions.makeTextViewResizable
 import com.unimapp.domain.entities.feed.Feed
 import com.unimapp.domain.entities.feed.FeedType
 import com.unimapp.unimapp.R
@@ -46,6 +50,11 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
             getResourceView(feed, feedListMainItemBinding.root.context)?.let {
                 feedListMainItemBinding.resourceLayout.addView(it)
             }
+            feedListMainItemBinding.feedContent.makeTextViewResizable(
+                3, true,
+                feedListMainItemBinding.getString(R.string.feed_show_more),
+                feedListMainItemBinding.getString(R.string.feed_show_less), R.color.stroke_color_alpha40
+            )
         }
 
         private fun getResourceView(feed: Feed, context: Context): View? {

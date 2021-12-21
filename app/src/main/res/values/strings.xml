@@ -63,6 +63,8 @@
     <string name="reaction_star">Like</string>
     <string name="reaction_comment">Comment</string>
     <string name="reaction_spread">Spread</string>
+    <string name="feed_show_more">Show more</string>
+    <string name="feed_show_less">Show less</string>
     <!-- End region-->
 
 </resources>
