@@ -55,6 +55,9 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
                 feedListMainItemBinding.getString(R.string.feed_show_more),
                 feedListMainItemBinding.getString(R.string.feed_show_less), R.color.stroke_color_alpha40
             )
+            feedListMainItemBinding.commentAction.setOnClickListener {
+                mFeedAdapterActionListener?.onCommentClick(1)
+            }
         }
 
         private fun getResourceView(feed: Feed, context: Context): View? {
@@ -102,5 +105,6 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
         fun onReactionClicked()
         fun onSelectedReaction(reactionPosition: Int, feedId: Int)
         fun onDownloadImage(id: Long, location: String)
+        fun onCommentClick(id: Long)
     }
 }

@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
 import androidx.viewbinding.ViewBinding
+import java.util.*
 
 fun Button.onClick(listener: View.OnClickListener) {
     this.setOnClickListener(listener)
@@ -27,6 +28,7 @@ fun View.invisible() {
 }
 
 fun View.getString(@StringRes resId: Int) = context.getString(resId)
+fun View.getString(@StringRes resId: Int, vararg list: Any) = context.getString(resId, list)
 
 
 fun View.showPopupMenu(menu: Int, onMenuItemClick: (MenuItem) -> Boolean, invisibleItems: List<Int>? = null) {
@@ -52,4 +54,8 @@ fun View.addBorder(@ColorRes solidColor: Int? = null, @ColorRes strokeColor: Int
 
 fun ViewBinding.getString(@StringRes stringResourceId: Int): String {
     return root.context.getString(stringResourceId)
+}
+
+fun ViewBinding.getString(@StringRes stringResourceId: Int, vararg extras: Any): String {
+    return root.context.getString(stringResourceId, *extras)
 }

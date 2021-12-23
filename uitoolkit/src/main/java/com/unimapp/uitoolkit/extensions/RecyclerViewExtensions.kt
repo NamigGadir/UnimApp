@@ -30,7 +30,7 @@ fun RecyclerView.addDivider(
     @Px height: Int = 0,
     @ColorInt color: Int? = null,
 ) {
-    ColorDrawable(color ?: 0x33000000).let {
+    ColorDrawable(color ?: 0x000000).let {
         val dividerItemDecoration = InsetItemDecoration(
             divider = it,
             leftInset = insetStart,

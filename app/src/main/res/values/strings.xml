@@ -65,6 +65,10 @@
     <string name="reaction_spread">Spread</string>
     <string name="feed_show_more">Show more</string>
     <string name="feed_show_less">Show less</string>
+
+    <string name="view_replies"> View %1$d replies</string>
+    <string name="hide_replies"> Hide Replies</string>
+
     <!-- End region-->
 
 </resources>

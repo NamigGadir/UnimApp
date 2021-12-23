@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
             R.id.signInWithEmailFragment,
             R.id.setPasswordFragment,
             R.id.addPostFragment,
-            R.id.tagFriendFragment
+            R.id.tagFriendFragment,
+            R.id.commentsFragment
         )
     }
 

@@ -14,6 +14,7 @@ import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import com.unimapp.unimapp.ui.authorization.siginwithemail.SignInWithEmailViewModel
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.unimapp.common.extensions.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -69,6 +70,10 @@ class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding
 
     override fun onDownloadImage(id: Long, location: String) {
         showToast(location)
+    }
+
+    override fun onCommentClick(id: Long) {
+        findNavController().navigate(HomePageFragmentDirections.actionHomePageFragmentToCommentsFragment())
     }
 
     override fun onStateUpdate(state: HomePageState) {
