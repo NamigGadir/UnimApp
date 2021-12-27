@@ -11,7 +11,7 @@ class SignInWithEmailViewModel @Inject constructor(
 ) : BaseViewModel<AuthState, Unit>() {
 
     fun signIn() {
-        postState(AuthState.SignInState(true))
+        postState(AuthState.SignInState(false))
     }
 
 }
