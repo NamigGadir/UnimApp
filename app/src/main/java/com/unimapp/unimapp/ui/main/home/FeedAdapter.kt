@@ -29,12 +29,16 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
     }
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val feed = getItem(position)
+        holder.bind(feed)
         reactionPopup.reactionSelectedListener = { reactionPosition ->
             mFeedAdapterActionListener?.onSelectedReaction(reactionPosition, position)
             true
         }
         holder.feedListMainItemBinding.reactionAction.setOnTouchListener(reactionPopup)
+        holder.feedListMainItemBinding.reactionUsers.setOnClickListener {
+            mFeedAdapterActionListener?.showReactions(feed.feedId)
+        }
     }
 
     fun setFeedActionListener(feedListener: FeedAdapterActionListener) {
@@ -106,5 +110,6 @@ class FeedAdapter(private val reactionPopup: ReactionPopup) : BaseAdapter<Feed, 
         fun onSelectedReaction(reactionPosition: Int, feedId: Int)
         fun onDownloadImage(id: Long, location: String)
         fun onCommentClick(id: Long)
+        fun showReactions(id: Long)
     }
 }

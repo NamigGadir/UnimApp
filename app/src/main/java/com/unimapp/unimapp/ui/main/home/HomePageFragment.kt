@@ -76,6 +76,12 @@ class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding
         findNavController().navigate(HomePageFragmentDirections.actionHomePageFragmentToCommentsFragment())
     }
 
+    override fun showReactions(id: Long) {
+        feedReactionsBottomSheet {
+
+        }.show(childFragmentManager, FeedReactionsBottomSheet::class.java.canonicalName)
+    }
+
     override fun onStateUpdate(state: HomePageState) {
         when (state) {
             is HomePageState.FeedList -> {

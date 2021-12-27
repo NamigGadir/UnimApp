@@ -30,6 +30,9 @@ class CommentsAdapter : BaseAdapter<Comment, CommentsAdapter.CommentViewHolder>(
 
     override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.commentItemBinding.mainComment.setOnReplyComment { userId, userName ->
+            mCommentsActionListener?.onCommentReply(userId, userName)
+        }
     }
 
 
@@ -37,9 +40,14 @@ class CommentsAdapter : BaseAdapter<Comment, CommentsAdapter.CommentViewHolder>(
         mCommentsActionListener = commentsActionListener
     }
 
-    inner class CommentViewHolder(private val commentItemBinding: CommentListItemBinding) : RecyclerView.ViewHolder(commentItemBinding.root) {
+    inner class CommentViewHolder(val commentItemBinding: CommentListItemBinding) : RecyclerView.ViewHolder(commentItemBinding.root) {
 
         fun bind(comment: Comment) {
+            commentItemBinding.mainComment.setCommentItemModel(CommentItemView.CommentItemModel(
+                comment.id, "Idrak Atakisili",
+                "https://www.monotsuites.com/assets/pages/media/profile/profile.jpg",
+                78
+            ))
             if (comment.replyCount > 0) {
                 commentItemBinding.commentResponses.show()
                 commentItemBinding.viewReplies.text =
@@ -71,6 +79,9 @@ class CommentsAdapter : BaseAdapter<Comment, CommentsAdapter.CommentViewHolder>(
                 }
                 comment.subComments?.forEach {
                     val commentItem = CommentItemView(commentItemBinding.root.context)
+                    commentItem.setOnReplyComment { userId, userName ->
+                        mCommentsActionListener?.onCommentReply(userId, userName)
+                    }
                     commentItem.setCommentItemModel(
                         CommentItemView.CommentItemModel(
                             it.id, "Namig",
@@ -88,7 +99,7 @@ class CommentsAdapter : BaseAdapter<Comment, CommentsAdapter.CommentViewHolder>(
 
     interface CommentsActionListener {
         fun onCommentLike(comment: Comment)
-        fun onCommentReply(comment: Comment)
+        fun onCommentReply(userId: Long, userName: String)
         fun onLoadComments(comment: Comment)
     }
 }

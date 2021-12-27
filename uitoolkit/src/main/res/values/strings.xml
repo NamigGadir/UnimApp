@@ -6,5 +6,8 @@
     <string name="comments_title">Comments</string>
     <string name="reply">Reply</string>
     <string name="pulses_count">%1$d pulses</string>
+    <string name="all_reaction_count">All %1$d</string>
+    <string name="add_peer">Add Peer</string>
+    <string name="peer_request">Peer Request</string>
 
 </resources>

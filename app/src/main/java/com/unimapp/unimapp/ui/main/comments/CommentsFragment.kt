@@ -1,9 +1,11 @@
 package com.unimapp.unimapp.ui.main.comments
 
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.unimapp.common.extensions.asTag
 import com.unimapp.domain.entities.feed.Comment
 import com.unimapp.uitoolkit.extensions.addDivider
 import com.unimapp.unimapp.core.BaseFragment
@@ -29,8 +31,8 @@ class CommentsFragment : BaseFragment<CommentsViewModel, FragmentCommentsBinding
 
             }
 
-            override fun onCommentReply(comment: Comment) {
-
+            override fun onCommentReply(userId: Long, userName: String) {
+                showReplyUser(userId, userName)
             }
 
             override fun onLoadComments(comment: Comment) {
@@ -39,6 +41,13 @@ class CommentsFragment : BaseFragment<CommentsViewModel, FragmentCommentsBinding
         })
         commentsList.addDivider(height = 55)
         viewmodel.loadComments()
+    }
+
+    private fun showReplyUser(userId: Long, userName: String) {
+        userName.asTag().let {
+            binding.commentInput.setText(it)
+            binding.commentInput.setSelection(it.length)
+        }
     }
 
     override fun onStateUpdate(state: CommentState) {

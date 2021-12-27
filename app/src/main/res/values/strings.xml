@@ -68,7 +68,10 @@
 
     <string name="view_replies"> View %1$d replies</string>
     <string name="hide_replies"> Hide Replies</string>
+    <string name="comment_post">Post</string>
+    <string name="comment_to_post">Comment to the post…</string>
 
     <!-- End region-->
+
 
 </resources>

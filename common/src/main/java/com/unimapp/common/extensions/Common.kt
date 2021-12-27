@@ -8,3 +8,4 @@ fun TypedArray.getResourceIdifHas(id: Int, default: Int): Int? {
         getResourceId(id, default)
     else null
 }
+

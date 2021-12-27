@@ -1,10 +1,13 @@
 package com.unimapp.domain.entities.feed
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 class Feed(
-//    val feedUser: FeedUser,
+    val feedId: Long,
 //    val feedMessage: String,
     val feedType: FeedType,
-//    val feedReactions: FeedReaction
+    var feedReactions: List<FeedReaction>
 )
 
 //class FeedUser(
@@ -16,16 +19,32 @@ class Feed(
 //    val childUsers: List<String>
 //)
 //
-//data class FeedReaction(
-//    val reactionUser: String,
-//    val reactionType: FeedReactionType
-//)
-//
-//enum class FeedReactionType {
-//    STAR,
-//    HEART,
-//    ANGRY
-//}
+
+data class FeedReaction(
+    val reactionUser: String,
+    val reactionType: FeedReactionType,
+    val friendType: AddFriendType
+)
+
+enum class AddFriendType {
+    IS_FRIEND,
+    IS_REQUESTED,
+    IS_REQUEST_AVAILABLE
+}
+
+enum class FeedReactionType {
+    STAR,
+    LOVE,
+    ANGRY,
+    CRY,
+    NOT_SPECIFIED,
+    COOL,
+    CELEBRATE,
+    HAHA,
+    OMG;
+
+
+}
 
 enum class FeedType {
     SIMPLE,

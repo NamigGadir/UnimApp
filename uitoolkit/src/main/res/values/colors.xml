@@ -15,6 +15,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="feed_divider_color">#DADADA</color>
     <color name="stroke_color_alpha40">#662B221B</color>
+    <color name="stroke_color_alpha20">#332B221B</color>
     <color name="stroke_color_alpha65">#A62B221B</color>
     <color name="stroke_color_alpha05">#0D2B221B</color>
+    <color name="unim_message_color">#A8A9AD</color>
+
+
 </resources>

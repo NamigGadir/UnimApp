@@ -23,20 +23,20 @@ class CommentItemView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private var binding: CommentItemBinding = CommentItemBinding.inflate(LayoutInflater.from(context), this, true)
-    private var mOnReplyComment: ((userId: Long, userName: String) -> Boolean)? = null
+    private var mOnReplyComment: ((userId: Long, userName: String) -> Unit)? = null
     private var mOnLikeComment: ((userId: Long) -> Boolean)? = null
+    private var mCommentItemModel: CommentItemModel? = null
 
     fun setCommentItemModel(commentItemModel: CommentItemModel) {
+        this.mCommentItemModel = commentItemModel
         binding.userName.text = commentItemModel.userName
-        binding.userImage.load(commentItemModel.userImage) {
-            listener(
-                onError = { _, it ->
-                    it
-                }
-            )
-        }
+        binding.userImage.load(commentItemModel.userImage)
         setLikeCount(commentItemModel.likeCount)
         binding.reply.setOnClickListener {
+            mOnReplyComment?.invoke(commentItemModel.id, commentItemModel.userName)
+        }
+
+        binding.pulsesCount.setOnClickListener {
             setLikeCount(commentItemModel.likeCount + 1)
             val result = mOnLikeComment?.invoke(commentItemModel.id) ?: false
             if (!result)
@@ -49,9 +49,12 @@ class CommentItemView @JvmOverloads constructor(
 
     }
 
-    fun setActions(onReplyComment: (id: Long, location: String) -> Boolean, onLikeComment: (id: Long) -> Boolean) {
-        this.mOnReplyComment = onReplyComment
+    fun setOnLikeComment(onLikeComment: (id: Long) -> Boolean) {
         this.mOnLikeComment = onLikeComment
+    }
+
+    fun setOnReplyComment(onReplyComment: ((userId: Long, userName: String) -> Unit)) {
+        this.mOnReplyComment = onReplyComment
     }
 
     class CommentItemModel(val id: Long, val userName: String, val userImage: String, val likeCount: Int)
