@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
+import com.unimapp.common.extensions.dp
 import com.unimapp.common.extensions.underline
 import com.unimapp.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.SignInWithEmailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
-import android.util.TypedValue
 
 
 @AndroidEntryPoint
@@ -57,10 +57,10 @@ class SignInWithEmailFragment :
                 view.apply {
                     val params = layoutParams as FrameLayout.LayoutParams
                     params.setMargins(
-                        covertFloatToDp(35f),
-                        covertFloatToDp(60f),
-                        covertFloatToDp(37f),
-                        covertFloatToDp(588f)
+                        35.dp,
+                        60.dp,
+                        37.dp,
+                        588.dp
                     )
                     textAlignment = View.TEXT_ALIGNMENT_CENTER
                     layoutParams = params
@@ -68,22 +68,14 @@ class SignInWithEmailFragment :
                         gravity = Gravity.CENTER
                         setTypeface(typeface, Typeface.BOLD)
                         setPadding(
-                            covertFloatToDp(60f),
-                            covertFloatToDp(20f),
-                            covertFloatToDp(20f),
-                            covertFloatToDp(20f)
+                            60.dp,
+                            20.dp,
+                            20.dp,
+                            20.dp
                         )
                         setTextSize(16f)
                     }
                 }
             }.show()
-    }
-
-    private fun covertFloatToDp(value: Float): Int {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            value,
-            requireContext().resources.displayMetrics
-        ).toInt()
     }
 }
