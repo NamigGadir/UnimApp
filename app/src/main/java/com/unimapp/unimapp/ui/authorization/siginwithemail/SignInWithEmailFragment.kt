@@ -8,12 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.core.view.setPadding
 import com.google.android.material.snackbar.Snackbar
 import com.unimapp.common.extensions.underline
 import com.unimapp.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.SignInWithEmailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import android.util.TypedValue
+
 
 @AndroidEntryPoint
 class SignInWithEmailFragment :
@@ -55,16 +56,34 @@ class SignInWithEmailFragment :
                 setBackgroundTint(Color.parseColor("#f4cccc"))
                 view.apply {
                     val params = layoutParams as FrameLayout.LayoutParams
-                    params.setMargins(35, 280, 37, 588)
+                    params.setMargins(
+                        covertFloatToDp(35f),
+                        covertFloatToDp(60f),
+                        covertFloatToDp(37f),
+                        covertFloatToDp(588f)
+                    )
                     textAlignment = View.TEXT_ALIGNMENT_CENTER
                     layoutParams = params
                     (view.findViewById(com.google.android.material.R.id.snackbar_text) as TextView).apply {
                         gravity = Gravity.CENTER
                         setTypeface(typeface, Typeface.BOLD)
-                        setPadding(200, 20, 20, 20)
+                        setPadding(
+                            covertFloatToDp(60f),
+                            covertFloatToDp(20f),
+                            covertFloatToDp(20f),
+                            covertFloatToDp(20f)
+                        )
                         setTextSize(16f)
                     }
                 }
             }.show()
+    }
+
+    private fun covertFloatToDp(value: Float): Int {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            value,
+            requireContext().resources.displayMetrics
+        ).toInt()
     }
 }
