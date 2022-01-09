@@ -19,6 +19,8 @@
     <color name="stroke_color_alpha65">#A62B221B</color>
     <color name="stroke_color_alpha05">#0D2B221B</color>
     <color name="unim_message_color">#A8A9AD</color>
+    <color name="tab_unselected_color">#A8A9AD</color>
+    <color name="tab_count_color">#A8A9AD</color>
 
 
 </resources>

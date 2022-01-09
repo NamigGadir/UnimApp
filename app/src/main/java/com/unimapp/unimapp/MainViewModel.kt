@@ -13,7 +13,7 @@ class MainViewModel @Inject constructor(private val onBoardingRepository: OnBoar
     }
 
     fun isRegisteredUser(): Boolean {
-        return false
+        return true
     }
 
 }
