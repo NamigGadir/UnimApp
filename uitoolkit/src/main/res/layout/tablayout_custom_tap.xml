@@ -32,7 +32,7 @@
         android:padding="@dimen/_2sdp"
         android:textColor="#FFFEFC"
         android:background="@drawable/ic_checker_orange"
-        app:layout_constraintStart_toEndOf="@+id/tab_title"
+        app:layout_constraintEnd_toStartOf="@+id/tab_title"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
