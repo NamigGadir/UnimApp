@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             val profileMenuItem = bottomMenuView.getChildAt(4) as BottomNavigationItemView
             val profileMenuItemCustomView = MyProfileLayoutBinding.inflate(LayoutInflater.from(this@MainActivity), bottomMenuView, false)
             profileMenuItemCustomView.profileImage.setOnClickListener {
-
+                showProfileFragment()
             }
             profileMenuItem.addView(profileMenuItemCustomView.root)
             //Notification icon
@@ -111,5 +111,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun showAddPostFragment() {
         navController.navigate(R.id.addPostFragment)
+    }
+
+    private fun showProfileFragment(){
+        navController.navigate(R.id.profile_nav_graph)
     }
 }

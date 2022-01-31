@@ -21,6 +21,7 @@
     <color name="unim_message_color">#A8A9AD</color>
     <color name="tab_unselected_color">#A8A9AD</color>
     <color name="tab_count_color">#A8A9AD</color>
+    <color name="profile_skill_color">#E5E6EB</color>
 
 
 </resources>
