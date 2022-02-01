@@ -6,70 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.profile.ProfileFragment">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/feed_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_8sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/profile_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_128sdp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/cover_image"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_128sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cover_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/user_image"
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_100sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_64sdp"
-                    android:src="@drawable/profile_image"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_64sdp"
+            android:src="@drawable/profile_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/profile_username"
-                    style="@style/Unim_Text_24sp_bold"
-                    android:layout_width="@dimen/_196sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:layout_marginLeft="@dimen/_13sdp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginTop="@dimen/_184sdp"
-                    android:text="Idrak Atakisili"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/profile_username"
+            style="@style/Unim_Text_24sp_bold"
+            android:layout_width="@dimen/_196sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Idrak Atakisili"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_image" />
 
-                <TextView
-                    android:id="@+id/profile_th_year_eco"
-                    style="@style/Unim_Text_14sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="@dimen/_13sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:gravity="center_vertical"
-                    android:text="4th Year Economics Student at Azerbaijan State University of Economics"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_username" />
+        <TextView
+            android:id="@+id/profile_th_year_eco"
+            style="@style/Unim_Text_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="center_vertical"
+            android:text="4th Year Economics Student at Azerbaijan State University of Economics"
+            app:layout_constraintEnd_toEndOf="@+id/profile_username"
+            app:layout_constraintStart_toStartOf="@+id/profile_username"
+            app:layout_constraintTop_toBottomOf="@+id/profile_username" />
 
-                <com.unimapp.uitoolkit.tagview.TagView
-                    android:id="@+id/profile_interest_tags"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_th_year_eco" />
+        <com.unimapp.uitoolkit.tagview.TagView
+            android:id="@+id/profile_interest_tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@+id/profile_th_year_eco"
+            app:layout_constraintStart_toStartOf="@+id/profile_th_year_eco"
+            app:layout_constraintTop_toBottomOf="@+id/profile_th_year_eco" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_body"
@@ -79,15 +79,63 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feed_header"
+        app:layout_constraintTop_toBottomOf="@+id/profile_header"
         app:layout_constraintVertical_bias="0.017">
+
+
+        <TextView
+            android:id="@+id/profile_peers_count"
+            style="@style/Unim_Text_14sp_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:text="452"
+            app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
+            app:layout_constraintEnd_toStartOf="@+id/profile_peers"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_peers"
+            style="@style/Unim_Text_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:text="Peers"
+            app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
+            app:layout_constraintEnd_toStartOf="@+id/profile_post"
+            app:layout_constraintStart_toEndOf="@+id/profile_peers_count"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_post_count"
+            style="@style/Unim_Text_14sp_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="105"
+            app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
+            app:layout_constraintEnd_toStartOf="@+id/profile_post"
+            app:layout_constraintStart_toEndOf="@+id/profile_peers"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_post"
+            style="@style/Unim_Text_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Posts"
+            app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profile_peers"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/profile_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/_20sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
