@@ -7,17 +7,12 @@ import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.unimapp.common.extensions.asColorResource
-import com.unimapp.common.extensions.gone
 import com.unimapp.uitoolkit.adapters.SimpleViewpagerAdapter
 import com.unimapp.uitoolkit.databinding.TablayoutCustomTapBinding
 import com.unimapp.uitoolkit.tagview.TagItem
 import com.unimapp.unimapp.R
 import com.unimapp.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentProfileBinding
-import com.unimapp.unimapp.ui.main.notifications.NotificationsFragment
-import com.unimapp.unimapp.ui.main.notifications.activity.ActivityFragment
-import com.unimapp.unimapp.ui.main.notifications.opportunity.OpportunityFragment
-import com.unimapp.unimapp.ui.main.notifications.peers.PeersFragment
 import com.unimapp.unimapp.ui.main.profile.about.AboutFragment
 import com.unimapp.unimapp.ui.main.profile.activity.ProfileActivityFragment
 import dagger.hilt.android.AndroidEntryPoint
