@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authorization_graph"
+    app:startDestination="@id/signInWithEmailFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.unimapp.authorization.start.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signInWithEmailFragment"
+            app:destination="@id/signInWithEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInWithEmailFragment"
+        android:name="com.unimapp.authorization.siginwithemail.SignInWithEmailFragment"
+        android:label="sign_in_with_email_fragment"
+        tools:layout="@layout/sign_in_with_email_fragment" >
+        <action
+            android:id="@+id/action_signInWithEmailFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.unimapp.authorization.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/setPasswordFragment"
+        android:name="com.unimapp.authorization.setpassword.SetPasswordFragment"
+        android:label="fragment_set_password"
+        tools:layout="@layout/fragment_set_password" />
+</navigation>

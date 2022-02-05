@@ -43,9 +43,13 @@ dependencies {
 
     //import modules
     implementation(project("::common"))
+    implementation(project("::core"))
     implementation(project("::data"))
     implementation(project("::domain"))
     implementation(project("::uitoolkit"))
+
+    //Features
+    implementation(project("::features:authorization"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'

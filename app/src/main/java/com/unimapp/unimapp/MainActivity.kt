@@ -3,28 +3,19 @@ package com.unimapp.unimapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.fragment.app.FragmentContainerView
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.navigation.NavigationBarView
 import com.unimapp.common.extensions.gone
 import com.unimapp.common.extensions.show
 import com.unimapp.unimapp.databinding.ActivityMainBinding
 import com.unimapp.unimapp.databinding.AddPostLayoutBinding
 import com.unimapp.unimapp.databinding.MyProfileLayoutBinding
 import com.unimapp.unimapp.databinding.NotificationBadgeBinding
-import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

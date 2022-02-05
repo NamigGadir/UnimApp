@@ -3,23 +3,18 @@ package com.unimapp.unimapp.ui.main.home
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
 import com.github.pgreze.reactions.ReactionPopup
 import com.github.pgreze.reactions.dsl.reactionConfig
 import com.github.pgreze.reactions.dsl.reactions
 import com.unimapp.unimapp.R
-import com.unimapp.unimapp.core.BaseFragment
-import com.unimapp.unimapp.databinding.FragmentHomePageBinding
-import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
-import com.unimapp.unimapp.ui.authorization.siginwithemail.SignInWithEmailViewModel
-import android.view.View
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
+import com.ingress.core.BaseFragment
 import com.unimapp.common.extensions.showToast
+import com.unimapp.unimapp.databinding.FragmentHomePageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
+class HomePageFragment : com.ingress.core.BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
 
     override fun getViewModelClass() = HomePageViewModel::class.java
 

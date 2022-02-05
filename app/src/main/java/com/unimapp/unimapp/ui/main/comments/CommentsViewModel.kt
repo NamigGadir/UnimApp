@@ -1,12 +1,10 @@
 package com.unimapp.unimapp.ui.main.comments
 
 import androidx.lifecycle.viewModelScope
+import com.ingress.core.BaseViewModel
 import com.unimapp.domain.entities.feed.Comment
 import com.unimapp.domain.repository.FeedRepository
-import com.unimapp.unimapp.core.BaseViewModel
-import com.unimapp.unimapp.ui.main.home.HomePageState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch

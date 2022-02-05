@@ -1,7 +1,7 @@
 package com.unimapp.unimapp
 
+import com.ingress.core.BaseViewModel
 import com.unimapp.domain.repository.OnBoardingRepository
-import com.unimapp.unimapp.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

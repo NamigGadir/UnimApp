@@ -1,7 +1,7 @@
 package com.unimapp.unimapp.ui.main.tagfriend
 
+import com.ingress.core.BaseViewModel
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
-import com.unimapp.unimapp.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

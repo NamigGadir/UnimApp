@@ -1,11 +1,11 @@
 package com.unimapp.unimapp.ui.main.home
 
 import androidx.lifecycle.viewModelScope
+import com.ingress.core.BaseViewModel
 import com.unimapp.domain.entities.feed.Feed
 import com.unimapp.domain.entities.feed.FeedReaction
 import com.unimapp.domain.entities.feed.FeedReactionType
 import com.unimapp.domain.repository.FeedRepository
-import com.unimapp.unimapp.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

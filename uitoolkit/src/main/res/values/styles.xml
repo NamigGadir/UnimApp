@@ -16,4 +16,10 @@
         <item name="cornerSize">24dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
+
+    <style name="Unim_Radio_Button" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radio_button_background</item>
+        <item name="android:paddingLeft">@dimen/_8sdp</item>
+    </style>
+
 </resources>
