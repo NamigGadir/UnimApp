@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignInWithEmailViewModel @Inject constructor(
-    authRepository: AuthRepository
+    val authRepository: AuthRepository
 ) : BaseViewModel<AuthState, Unit>() {
 
     fun signIn() {
