@@ -1,8 +1,8 @@
 package com.unimapp.unimapp.ui.onboarding
 
+import com.ingress.core.BaseViewModel
+import com.unimapp.authorization.siginwithemail.AuthState
 import com.unimapp.domain.repository.OnBoardingRepository
-import com.unimapp.unimapp.core.BaseViewModel
-import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package com.unimapp.unimapp.ui.main.notifications
 
-import com.unimapp.unimapp.core.BaseViewModel
+import com.ingress.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -15,10 +15,5 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m" >true</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="Unim_Radio_Button" parent="@android:style/Widget.CompoundButton.RadioButton">
-        <item name="android:button">@drawable/radio_button_background</item>
-        <item name="android:paddingLeft">@dimen/_8sdp</item>
-
-    </style>
 
 </resources>

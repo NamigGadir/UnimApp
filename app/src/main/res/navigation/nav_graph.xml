@@ -34,6 +34,6 @@
     <fragment
         android:id="@+id/tagFriendFragment"
         tools:layout="@layout/fragment_tag_friend"
-        android:name="com.unimapp.unimapp.ui.main.addpost.TagFriendFragment"
+        android:name="com.unimapp.unimapp.ui.main.tagfriend.TagFriendFragment"
         android:label="TagFriendFragment" />
 </navigation>

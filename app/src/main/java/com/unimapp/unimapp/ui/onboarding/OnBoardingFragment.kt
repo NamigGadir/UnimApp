@@ -6,20 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.unimapp.common.extensions.onClick
 import com.unimapp.unimapp.R
-import com.unimapp.unimapp.core.BaseFragment
-import com.unimapp.unimapp.core.BaseViewModel
+import com.ingress.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentOnboardingBinding
-import com.unimapp.unimapp.ui.authorization.siginwithemail.AuthState
+import com.unimapp.authorization.siginwithemail.AuthState
+import com.unimapp.common.extensions.onClick
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, AuthState, Unit>() {
+class OnBoardingFragment : com.ingress.core.BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, com.unimapp.authorization.siginwithemail.AuthState, Unit>() {
 
     private var onboardingAdapter: OnboardingAdapter? = null
 
@@ -112,7 +110,7 @@ class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingB
         onboardingAdapter = OnboardingAdapter(onBoardingItems)
     }
 
-    override fun onStateUpdate(state: AuthState) {
+    override fun onStateUpdate(state: com.unimapp.authorization.siginwithemail.AuthState) {
 
     }
 

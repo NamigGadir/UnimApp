@@ -4,15 +4,13 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.URLUtil
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
-import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.unimapp.common.extensions.*
 import com.unimapp.unimapp.BuildConfig
-import com.unimapp.unimapp.core.BaseFragment
+import com.ingress.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentAddPostBinding
 import java.io.File
 
@@ -21,11 +19,9 @@ import com.unimapp.uitoolkit.resource_view.FileResourceView
 import com.unimapp.uitoolkit.resource_view.LinkResourceView
 import com.unimapp.unimapp.R
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
-class AddPostFragment : BaseFragment<AddPostViewModel, FragmentAddPostBinding, AddPostState, Unit>(), View.OnClickListener {
+class AddPostFragment : com.ingress.core.BaseFragment<AddPostViewModel, FragmentAddPostBinding, AddPostState, Unit>(), View.OnClickListener {
 
     private var imageUri: Uri? = null
     private val takeImageResults = registerForActivityResult(ActivityResultContracts.TakePicture()) {
