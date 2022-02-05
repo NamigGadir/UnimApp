@@ -14,6 +14,5 @@ class OnBoardingRepositoryImpl @Inject constructor(
         mainSharedPreferences.set(SharedConstants.ONBOARDING_HAVE_LOOKED, haveLooked)
     }
 
-    override fun isOnBoardingFinished() = mainSharedPreferences.get(SharedConstants.ONBOARDING_HAVE_LOOKED, false)
-
+    override fun isOnBoardingFinished() = mainSharedPreferences.get(SharedConstants.ONBOARDING_HAVE_LOOKED, true)
 }

@@ -73,5 +73,11 @@
 
     <!-- End region-->
 
+    <!-- Add Post Strings-->
+    <string name="notification_activity">Activity</string>
+    <string name="notification_peers">Peers</string>
+    <string name="notification_opportunity">Opportunity</string>
+
+    <!-- End region-->
 
 </resources>
