@@ -10,10 +10,9 @@ interface BaseUseCase<T, R> {
         return try {
             RemoteResponse.Success(call(input).result.content)
         } catch (httpException: HttpException) {
-            RemoteResponse.NetworkError(httpException.code())
+            RemoteResponse.NetworkError(httpException.code(), httpException)
         } catch (e: Exception) {
-            e
-            RemoteResponse.NetworkError(0)
+            RemoteResponse.NetworkError(0, e)
         }
     }
 }
