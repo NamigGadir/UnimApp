@@ -8,7 +8,7 @@ import com.unimapp.uitoolkit.R
  * @see TagView
  */
 data class TagItem(
-    val id: Int?, val text: String?, var isSelected: Boolean, val tagTextColor: Int, val background: Int,
+    val id: Long?, val text: String?, var isSelected: Boolean, val tagTextColor: Int, val background: Int,
     val selectedTextBackgroundColor: Int, val selectedBackground: Int, val tagTextSize: Int,
     @DrawableRes var tagImage: Int? = null
 )
@@ -17,7 +17,7 @@ data class TagItem(
  * Tag item builder. Builds tag item for given tag data info
  */
 class TagItemBuilder {
-    var id: Int? = null
+    var id: Long? = null
     var text: String? = null
     var isSelected: Boolean? = null
     var tagTextColor: Int? = null
@@ -27,7 +27,7 @@ class TagItemBuilder {
     var tagTextSize: Int? = null
     var tagImage: Int? = null
 
-    inline fun id(id: () -> Int) {
+    inline fun id(id: () -> Long) {
         this.id = id()
     }
 

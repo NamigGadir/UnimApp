@@ -43,6 +43,8 @@ dependencies {
     implementation "com.google.dagger:hilt-core:2.40"
     kapt "com.google.dagger:hilt-compiler:2.40"
 
+    // Retrofit with Moshi Converter
+    api "com.squareup.retrofit2:retrofit:2.9.0"
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC3'
 

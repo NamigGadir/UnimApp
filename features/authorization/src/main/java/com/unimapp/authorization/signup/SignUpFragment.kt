@@ -47,7 +47,11 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
     }
 
     override fun onStateUpdate(state: SignUpState) {
-
+        when (state) {
+            is SignUpState.InitialValues -> {
+                viewmodel.updateInterestsBottomSheet()
+            }
+        }
     }
 
     private fun setAcceptButton() {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
@@ -56,6 +57,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
         }
         viewmodel.event.observe(requireActivity()) {
             onEventUpdate(event = it)
+        }
+        viewmodel.errorHandler.observe(viewLifecycleOwner) {
+            it
         }
     }
 

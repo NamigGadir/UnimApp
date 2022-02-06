@@ -2,6 +2,8 @@ package com.unimapp.authorization.signup
 
 import com.ingress.core.BaseViewModel
 import com.unimapp.authorization.R
+import com.unimapp.domain.entities.auth.Interest
+import com.unimapp.domain.usecases.GetInterestsUseCase
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
 import com.unimapp.uitoolkit.tagview.TagItem
@@ -10,9 +12,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SignUpViewModel @Inject constructor() : BaseViewModel<SignUpState, Unit>() {
+class SignUpViewModel @Inject constructor(
+    private val getInterestsUseCase: GetInterestsUseCase
+) : BaseViewModel<SignUpState, Unit>() {
 
-    val interests by lazy { getInterestList() }
+    var interests: List<SimpleMultiSelectorBottomSheet.Item> = arrayListOf()
     val universities by lazy { getUniversitiesList() }
     val degrees by lazy { getDegreesList() }
 
@@ -23,14 +27,26 @@ class SignUpViewModel @Inject constructor() : BaseViewModel<SignUpState, Unit>()
         tagImage = R.drawable.ic_plus
     }
 
-    private fun getInterestList() = arrayListOf(
-        SimpleMultiSelectorBottomSheet.Item(1, "idman", false),
-        SimpleMultiSelectorBottomSheet.Item(2, "web development", false),
-        SimpleMultiSelectorBottomSheet.Item(3, "prosrammin", false),
-        SimpleMultiSelectorBottomSheet.Item(4, "hiking", true),
-        SimpleMultiSelectorBottomSheet.Item(5, "andorid", false),
-        SimpleMultiSelectorBottomSheet.Item(6, "java", false)
-    )
+    init {
+        getInitialInfo()
+    }
+
+    private fun getInitialInfo() {
+        invokeRequest(Unit, getInterestsUseCase) {
+            postState(SignUpState.InitialValues(interestList = it))
+        }
+    }
+
+    fun updateInterestsBottomSheet() {
+        interests = getInterestListBottomSheet()
+    }
+
+    private fun getInterestList(): List<Interest> {
+        if (state.value is SignUpState.InitialValues) {
+            return (state.value as SignUpState.InitialValues).interestList
+        }
+        return arrayListOf()
+    }
 
     private fun getUniversitiesList() = arrayListOf(
         SimpleSingleSelectorBottomSheet.Item(1, "Baki dovlet", false),
@@ -48,6 +64,12 @@ class SignUpViewModel @Inject constructor() : BaseViewModel<SignUpState, Unit>()
         SimpleSingleSelectorBottomSheet.Item(3, "Doctor", false),
     )
 
+    private fun getInterestListBottomSheet(): List<SimpleMultiSelectorBottomSheet.Item> {
+        return getInterestList().map {
+            SimpleMultiSelectorBottomSheet.Item(it.id, it.name, false)
+        }
+    }
+
     fun getTagList(): List<TagItem> {
         return interests.filter { it.isSelected }.map {
             tagItem {
@@ -56,9 +78,9 @@ class SignUpViewModel @Inject constructor() : BaseViewModel<SignUpState, Unit>()
             }
         }.plus(plusTag)
     }
-
 }
 
-sealed class SignUpState {
 
+sealed class SignUpState {
+    data class InitialValues(val interestList: List<Interest>) : SignUpState()
 }
