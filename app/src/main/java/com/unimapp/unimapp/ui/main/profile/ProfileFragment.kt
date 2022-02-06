@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.ingress.core.BaseFragment
 import com.unimapp.common.extensions.asColorResource
 import com.unimapp.uitoolkit.adapters.SimpleViewpagerAdapter
 import com.unimapp.uitoolkit.databinding.TablayoutCustomTapBinding
 import com.unimapp.uitoolkit.tagview.TagItem
 import com.unimapp.unimapp.R
-import com.unimapp.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentProfileBinding
 import com.unimapp.unimapp.ui.main.profile.about.AboutFragment
 import com.unimapp.unimapp.ui.main.profile.activity.ProfileActivityFragment

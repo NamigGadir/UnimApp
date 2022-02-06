@@ -1,9 +1,9 @@
 package com.unimapp.unimapp.ui.main.profile
 
+import com.ingress.core.BaseViewModel
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.tagview.TagItem
 import com.unimapp.uitoolkit.tagview.tagItem
-import com.unimapp.unimapp.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
