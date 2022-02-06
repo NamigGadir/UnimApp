@@ -8,7 +8,9 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
 fun Button.onClick(listener: View.OnClickListener) {
@@ -58,4 +60,16 @@ fun ViewBinding.getString(@StringRes stringResourceId: Int): String {
 
 fun ViewBinding.getString(@StringRes stringResourceId: Int, vararg extras: Any): String {
     return root.context.getString(stringResourceId, *extras)
+}
+
+fun TextInputLayout.doOnTextChanged(action: (CharSequence?, Int, Int, Int) -> Unit) {
+    editText?.doOnTextChanged { text, start, before, count ->
+        action(text, start, before, count)
+    }
+}
+
+fun TextInputLayout.onTextChanged(action: (text: CharSequence?) -> Unit) {
+    editText?.doOnTextChanged { text, _, _, _ ->
+        action(text)
+    }
 }

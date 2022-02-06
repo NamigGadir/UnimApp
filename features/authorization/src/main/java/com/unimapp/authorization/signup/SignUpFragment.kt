@@ -9,12 +9,12 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
+import com.google.android.material.textfield.TextInputLayout
 import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.R
 import com.unimapp.authorization.databinding.FragmentSignUpBinding
-import com.unimapp.common.extensions.asColorResource
-import com.unimapp.common.extensions.showDatePicker
-import com.unimapp.common.extensions.showToast
+import com.unimapp.common.extensions.*
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.simpleMultiSelectorBottomSheet
@@ -27,6 +27,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, SignUpState, Unit>() {
 
     override fun getViewModelClass() = SignUpViewModel::class.java
+
+    private var selectedFaculty: SimpleSingleSelectorBottomSheet.Item? = null
+    private var selectedYear: SimpleSingleSelectorBottomSheet.Item? = null
+    private var selectedDegree: SimpleSingleSelectorBottomSheet.Item? = null
+    private var selectedUniversity: SimpleSingleSelectorBottomSheet.Item? = null
 
     override val onViewBinding: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSignUpBinding
         get() = FragmentSignUpBinding::inflate
@@ -44,6 +49,27 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
             showBirthdaySelectCalendar()
         }
         setAcceptButton()
+        addTextChanges()
+        acceptCheck.setOnCheckedChangeListener { buttonView, isChecked ->
+            validateContinueButton()
+        }
+    }
+
+    private fun addTextChanges() {
+        withBinding {
+            firstName.onTextChanged {
+                validateContinueButton()
+            }
+            lastname.onTextChanged {
+                validateContinueButton()
+            }
+            email.onTextChanged {
+                validateContinueButton()
+            }
+            birthdayInput.onTextChanged {
+                validateContinueButton()
+            }
+        }
     }
 
     override fun onStateUpdate(state: SignUpState) {
@@ -116,7 +142,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
                     itemList = viewmodel.universities
                     dialogTitle = getString(R.string.name_of_university)
                     onItemsSelected {
-
+                        onUniversitySelected(it)
                     }
                 }.show(childFragmentManager, SimpleSingleSelectorBottomSheet::class.java.canonicalName)
             }
@@ -130,7 +156,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
                     itemList = viewmodel.degrees
                     dialogTitle = getString(R.string.academic_degree)
                     onItemsSelected {
-
+                        onDegreeSelected(it)
                     }
                 }.show(childFragmentManager, SimpleSingleSelectorBottomSheet::class.java.canonicalName)
             }
@@ -144,7 +170,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
                     itemList = viewmodel.years
                     dialogTitle = getString(R.string.start_year)
                     onItemsSelected {
-
+                        onYearSelected(it)
                     }
                 }.show(childFragmentManager, SimpleSingleSelectorBottomSheet::class.java.canonicalName)
             }
@@ -158,7 +184,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
                     itemList = viewmodel.faculties
                     dialogTitle = getString(R.string.academic_degree)
                     onItemsSelected {
-
+                        onFacultySelected(it)
                     }
                 }.show(childFragmentManager, SimpleSingleSelectorBottomSheet::class.java.canonicalName)
             }
@@ -181,5 +207,53 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
         }
     }
 
+    private fun validateContinueButton() {
+        binding.continueButton.isEnabled = isAllFieldsValid()
+    }
+
+    private fun isAllFieldsValid(): Boolean {
+        withBinding {
+            val isFirstNameValid = !firstName.editText?.text.isNullOrEmpty()
+            val isLastNameValid = !lastname.editText?.text.isNullOrEmpty()
+            val isEmailValid = !email.editText?.text.isNullOrEmpty() && viewmodel.isEmailValid(email.editText?.text.toString())
+            val isBirthdayValid = !birthdayInput.editText?.text.isNullOrEmpty()
+            val isUniversitySelected = selectedUniversity.isNotNull()
+            val isDegreeSelected = selectedDegree.isNotNull()
+            val isYearSelected = selectedYear.isNotNull()
+            val isFacultySelected = selectedFaculty.isNotNull()
+            val isAgreementSelected = acceptCheck.isChecked
+            return isFirstNameValid && isLastNameValid && isEmailValid && isBirthdayValid && isUniversitySelected
+                    && isDegreeSelected && isYearSelected && isFacultySelected && isAgreementSelected
+        }
+    }
+
+    private fun onUniversitySelected(item: SimpleSingleSelectorBottomSheet.Item) {
+        selectedUniversity = item
+        binding.unversitySelector.text = item.itemTitle
+        validateContinueButton()
+    }
+
+
+    private fun onDegreeSelected(item: SimpleSingleSelectorBottomSheet.Item) {
+        selectedDegree = item
+        binding.degreeSelector.text = item.itemTitle
+        validateContinueButton()
+    }
+
+
+    private fun onYearSelected(it: SimpleSingleSelectorBottomSheet.Item) {
+        selectedYear = it
+        binding.startSelector.text = it.itemTitle
+        validateContinueButton()
+    }
+
+
+    private fun onFacultySelected(it: SimpleSingleSelectorBottomSheet.Item) {
+        selectedFaculty = it
+        binding.specialitySelector.text = it.itemTitle
+        validateContinueButton()
+    }
+
 }
+
 
