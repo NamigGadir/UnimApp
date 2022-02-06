@@ -89,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_2sdp"
+            android:layout_marginRight="@dimen/_8sdp"
             android:text="452"
             app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
             app:layout_constraintEnd_toStartOf="@+id/profile_peers"
@@ -99,11 +100,11 @@
             android:id="@+id/profile_peers"
             style="@style/Unim_Text_14sp"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_2sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_8sdp"
             android:text="Peers"
             app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
-            app:layout_constraintEnd_toStartOf="@+id/profile_post"
+            app:layout_constraintEnd_toStartOf="@+id/profile_post_count"
             app:layout_constraintStart_toEndOf="@+id/profile_peers_count"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,7 +112,8 @@
             android:id="@+id/profile_post_count"
             style="@style/Unim_Text_14sp_Bold"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_8sdp"
             android:text="105"
             app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
             app:layout_constraintEnd_toStartOf="@+id/profile_post"
@@ -122,11 +124,11 @@
             android:id="@+id/profile_post"
             style="@style/Unim_Text_14sp"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
             android:text="Posts"
             app:layout_constraintBottom_toTopOf="@+id/profile_tab_layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profile_peers"
+            app:layout_constraintStart_toEndOf="@+id/profile_post_count"
             app:layout_constraintTop_toTopOf="parent" />
 
 
