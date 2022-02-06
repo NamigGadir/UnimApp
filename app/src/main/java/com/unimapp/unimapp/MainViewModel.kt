@@ -1,6 +1,6 @@
 package com.unimapp.unimapp
 
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.repository.OnBoardingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -13,7 +13,7 @@ class MainViewModel @Inject constructor(private val onBoardingRepository: OnBoar
     }
 
     fun isRegisteredUser(): Boolean {
-        return true
+        return false
     }
 
 }

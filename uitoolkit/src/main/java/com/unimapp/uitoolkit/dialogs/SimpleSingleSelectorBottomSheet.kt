@@ -42,7 +42,7 @@ class SimpleSingleSelectorBottomSheet(
                 (simpleSelectorList.getChildAt(index) as RadioButton).isChecked = true
             }
             simpleSelectorList.setOnCheckedChangeListener { _, checkedId -> // start to listen
-                itemList[checkedId - 1].let { item ->
+                itemList.first { checkedId == it.itemId}.let { item ->
                     onItemsSelected?.invoke(item)
                     resetSelection(item)
                 }
@@ -64,7 +64,7 @@ class SimpleSingleSelectorBottomSheet(
         val view: RadioButton = LayoutInflater.from(requireContext()).inflate(R.layout.unim_radio_button, null) as RadioButton
         view.layoutParams = RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, RadioGroup.LayoutParams.WRAP_CONTENT)
         view.text = item.itemTitle
-        view.id = item.itemId
+        view.id = item.itemId.toInt()
         return view
     }
 

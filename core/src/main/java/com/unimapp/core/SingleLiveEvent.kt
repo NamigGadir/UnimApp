@@ -1,4 +1,4 @@
-package com.ingress.core
+package com.unimapp.core
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

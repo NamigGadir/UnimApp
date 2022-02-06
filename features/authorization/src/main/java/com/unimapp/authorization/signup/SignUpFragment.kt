@@ -9,7 +9,7 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.R
 import com.unimapp.authorization.databinding.FragmentSignUpBinding
 import com.unimapp.common.extensions.asColorResource
@@ -47,7 +47,11 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
     }
 
     override fun onStateUpdate(state: SignUpState) {
-
+        when (state) {
+            is SignUpState.InitialValues -> {
+                viewmodel.updateInitialValues()
+            }
+        }
     }
 
     private fun setAcceptButton() {
@@ -137,8 +141,8 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
         withBinding {
             startSelector.setOnClickListener {
                 simpleSingleSelectorBottomSheet {
-                    itemList = viewmodel.degrees
-                    dialogTitle = getString(R.string.academic_degree)
+                    itemList = viewmodel.years
+                    dialogTitle = getString(R.string.start_year)
                     onItemsSelected {
 
                     }
@@ -151,7 +155,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
         withBinding {
             specialitySelector.setOnClickListener {
                 simpleSingleSelectorBottomSheet {
-                    itemList = viewmodel.degrees
+                    itemList = viewmodel.faculties
                     dialogTitle = getString(R.string.academic_degree)
                     onItemsSelected {
 

@@ -1,4 +1,4 @@
-package com.ingress.core
+package com.unimapp.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -56,6 +56,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
         }
         viewmodel.event.observe(requireActivity()) {
             onEventUpdate(event = it)
+        }
+        viewmodel.errorHandler.observe(viewLifecycleOwner) {
+            it
         }
     }
 

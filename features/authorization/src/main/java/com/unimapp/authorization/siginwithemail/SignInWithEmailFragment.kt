@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.databinding.SignInWithEmailFragmentBinding
 import com.unimapp.common.extensions.dp
 import com.unimapp.common.extensions.underline

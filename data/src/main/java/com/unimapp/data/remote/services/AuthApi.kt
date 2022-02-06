@@ -7,4 +7,6 @@ interface AuthApi {
     @POST("/v1/auth/login")
     suspend fun login(): Any
 
+
+
 }

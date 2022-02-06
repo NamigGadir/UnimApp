@@ -8,13 +8,13 @@ import com.github.pgreze.reactions.ReactionPopup
 import com.github.pgreze.reactions.dsl.reactionConfig
 import com.github.pgreze.reactions.dsl.reactions
 import com.unimapp.unimapp.R
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.common.extensions.showToast
 import com.unimapp.unimapp.databinding.FragmentHomePageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomePageFragment : com.ingress.core.BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
+class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
 
     override fun getViewModelClass() = HomePageViewModel::class.java
 

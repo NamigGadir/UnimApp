@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.unimapp.common.extensions.*
 import com.unimapp.unimapp.BuildConfig
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentAddPostBinding
 import java.io.File
 
@@ -21,7 +21,7 @@ import com.unimapp.unimapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddPostFragment : com.ingress.core.BaseFragment<AddPostViewModel, FragmentAddPostBinding, AddPostState, Unit>(), View.OnClickListener {
+class AddPostFragment : BaseFragment<AddPostViewModel, FragmentAddPostBinding, AddPostState, Unit>(), View.OnClickListener {
 
     private var imageUri: Uri? = null
     private val takeImageResults = registerForActivityResult(ActivityResultContracts.TakePicture()) {

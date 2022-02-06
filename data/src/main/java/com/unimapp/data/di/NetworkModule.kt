@@ -1,19 +1,17 @@
 package com.unimapp.data.di
 
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.unimapp.data.BuildConfig
 import com.unimapp.data.remote.services.AuthApi
+import com.unimapp.data.remote.services.MdServicesApi
 import com.unimapp.data.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -23,41 +21,19 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideKotlinJsonAdapterFactory(): KotlinJsonAdapterFactory = KotlinJsonAdapterFactory()
-
-    @Provides
-    @Singleton
-    fun provideMoshi(kotlinJsonAdapterFactory: KotlinJsonAdapterFactory): Moshi = Moshi.Builder()
-        .add(kotlinJsonAdapterFactory)
-        .build()
-
-    @Provides
-    @Singleton
-    fun provideMoshiConverterFactory(moshi: Moshi): MoshiConverterFactory =
-        MoshiConverterFactory.create(moshi)
+    fun provideGsonFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
     @Provides
     @Singleton
     fun provideHttpClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
-        certificatePinner: CertificatePinner,
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
             readTimeout(Constants.READ_TIMEOUT, TimeUnit.SECONDS)
             connectTimeout(Constants.CONNECT_TIMEOUT, TimeUnit.SECONDS)
-            addInterceptor(httpLoggingInterceptor).certificatePinner(certificatePinner)
+            addInterceptor(httpLoggingInterceptor)
         }.build()
     }
-
-    @Singleton
-    @Provides
-    fun provideCertificatePinner(): CertificatePinner {
-        return CertificatePinner.Builder().apply {
-//            add(retrofitHostConfig.baseUrl, retrofitHostConfig.mainSHSKey)
-//            add(retrofitHostConfig.baseUrl, retrofitHostConfig.backupSHAKey)
-        }.build()
-    }
-
 
     @Provides
     @Singleton
@@ -71,9 +47,9 @@ class NetworkModule {
     @Singleton
     fun provideRetrofitClient(
         okHttp: OkHttpClient,
-        moshiConverterFactory: MoshiConverterFactory
+        factory: GsonConverterFactory
     ): Retrofit = Retrofit.Builder()
-        .addConverterFactory(moshiConverterFactory)
+        .addConverterFactory(factory)
         .client(okHttp)
         .baseUrl(BuildConfig.SERVER_URL)
         .build()
@@ -81,4 +57,8 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideLoginApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideMdApi(retrofit: Retrofit): MdServicesApi = retrofit.create(MdServicesApi::class.java)
 }

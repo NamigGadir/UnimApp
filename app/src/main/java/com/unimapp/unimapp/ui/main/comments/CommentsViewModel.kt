@@ -1,7 +1,7 @@
 package com.unimapp.unimapp.ui.main.comments
 
 import androidx.lifecycle.viewModelScope
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.entities.feed.Comment
 import com.unimapp.domain.repository.FeedRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
