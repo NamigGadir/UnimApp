@@ -1,6 +1,5 @@
 package com.unimapp.unimapp.ui.main.comments
 
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
@@ -8,13 +7,12 @@ import androidx.navigation.ui.NavigationUI
 import com.unimapp.common.extensions.asTag
 import com.unimapp.domain.entities.feed.Comment
 import com.unimapp.uitoolkit.extensions.addDivider
-import com.unimapp.unimapp.core.BaseFragment
+import com.ingress.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentCommentsBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
-class CommentsFragment : BaseFragment<CommentsViewModel, FragmentCommentsBinding, CommentState, Unit>() {
+class CommentsFragment : com.ingress.core.BaseFragment<CommentsViewModel, FragmentCommentsBinding, CommentState, Unit>() {
     private val adapter by lazy { CommentsAdapter() }
 
     override fun getViewModelClass() = CommentsViewModel::class.java

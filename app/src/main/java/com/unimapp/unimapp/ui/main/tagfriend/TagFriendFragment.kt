@@ -4,16 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.unimapp.uitoolkit.R
-import com.unimapp.uitoolkit.databinding.SimpleSelectorItemBinding
 import com.unimapp.uitoolkit.databinding.TagFriendListItemBinding
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.extensions.addDivider
 import com.unimapp.uitoolkit.extensions.withSingleAdapter
-import com.unimapp.unimapp.core.BaseFragment
-import com.unimapp.unimapp.databinding.FragmentHomePageBinding
+import com.ingress.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentTagFriendBinding
 
-class TagFriendFragment : BaseFragment<TagFriendViewModel, FragmentTagFriendBinding, Unit, Unit>() {
+class TagFriendFragment : com.ingress.core.BaseFragment<TagFriendViewModel, FragmentTagFriendBinding, Unit, Unit>() {
 
     override fun getViewModelClass() = TagFriendViewModel::class.java
 

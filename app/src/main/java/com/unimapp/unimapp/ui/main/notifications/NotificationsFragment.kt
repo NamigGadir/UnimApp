@@ -11,7 +11,7 @@ import com.unimapp.common.extensions.gone
 import com.unimapp.uitoolkit.adapters.SimpleViewpagerAdapter
 import com.unimapp.uitoolkit.databinding.TablayoutCustomTapBinding
 import com.unimapp.unimapp.R
-import com.unimapp.unimapp.core.BaseFragment
+import com.ingress.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentNotificationsBinding
 import com.unimapp.unimapp.ui.main.notifications.activity.ActivityFragment
 import com.unimapp.unimapp.ui.main.notifications.opportunity.OpportunityFragment
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NotificationsFragment :
-    BaseFragment<NotificationsViewModel, FragmentNotificationsBinding, NotificationState, Unit>() {
+    com.ingress.core.BaseFragment<NotificationsViewModel, FragmentNotificationsBinding, NotificationState, Unit>() {
 
     private val fragments by lazy {
         listOf(ActivityFragment(), PeersFragment(), OpportunityFragment())
