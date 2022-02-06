@@ -42,7 +42,7 @@ class SimpleSingleSelectorBottomSheet(
                 (simpleSelectorList.getChildAt(index) as RadioButton).isChecked = true
             }
             simpleSelectorList.setOnCheckedChangeListener { _, checkedId -> // start to listen
-                itemList[checkedId - 1].let { item ->
+                itemList.first { checkedId == it.itemId}.let { item ->
                     onItemsSelected?.invoke(item)
                     resetSelection(item)
                 }
@@ -93,7 +93,7 @@ class SimpleSingleSelectorBottomSheet(
     }
 
     data class Item(
-        val itemId: Long,
+        val itemId: Int,
         val itemTitle: String,
         var isSelected: Boolean
     )

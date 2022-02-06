@@ -79,7 +79,7 @@ class SimpleMultiSelectorBottomSheet(
     }
 
     data class Item(
-        val itemId: Long,
+        val itemId: Int,
         val itemTitle: String,
         var isSelected: Boolean
     )

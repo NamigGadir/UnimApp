@@ -1,9 +1,8 @@
 package com.unimapp.authorization.signup
 
 import androidx.lifecycle.viewModelScope
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.authorization.R
-import com.unimapp.domain.base.RemoteResponse
 import com.unimapp.domain.entities.auth.Faculty
 import com.unimapp.domain.entities.auth.Interest
 import com.unimapp.domain.entities.auth.University
@@ -15,10 +14,8 @@ import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
 import com.unimapp.uitoolkit.tagview.TagItem
 import com.unimapp.uitoolkit.tagview.tagItem
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,6 +29,7 @@ class SignUpViewModel @Inject constructor(
     var universities: List<SimpleSingleSelectorBottomSheet.Item> = arrayListOf()
     var faculties: List<SimpleSingleSelectorBottomSheet.Item> = arrayListOf()
     val degrees by lazy { getDegreesList() }
+    val years by lazy { getYearsList() }
 
     private val plusTag = tagItem {
         backgroundResurce = R.drawable.tagview_gray_background
@@ -97,6 +95,11 @@ class SignUpViewModel @Inject constructor(
         SimpleSingleSelectorBottomSheet.Item(2, "Master", true),
         SimpleSingleSelectorBottomSheet.Item(3, "Doctor", false),
     )
+
+    private fun getYearsList() = (2012..2022).map {
+        SimpleSingleSelectorBottomSheet.Item(it, it.toString(), false)
+    }
+
 
     private fun getInterestListBottomSheet(): List<SimpleMultiSelectorBottomSheet.Item> {
         return getInterestList().map {

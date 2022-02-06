@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.R
 import com.unimapp.authorization.databinding.FragmentSetPasswordBinding
 

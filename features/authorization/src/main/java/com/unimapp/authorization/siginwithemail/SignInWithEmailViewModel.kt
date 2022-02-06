@@ -1,6 +1,6 @@
 package com.unimapp.authorization.siginwithemail
 
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -1,7 +1,7 @@
 package com.unimapp.unimapp.ui.main.home
 
 import androidx.lifecycle.viewModelScope
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.entities.feed.Feed
 import com.unimapp.domain.entities.feed.FeedReaction
 import com.unimapp.domain.entities.feed.FeedReactionType

@@ -3,7 +3,7 @@ package com.unimapp.authorization.start
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.R
 import com.unimapp.authorization.databinding.FragmentSignInBinding
 import com.unimapp.authorization.siginwithemail.AuthState

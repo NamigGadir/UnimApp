@@ -10,14 +10,14 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.unimapp.unimapp.R
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentOnboardingBinding
 import com.unimapp.authorization.siginwithemail.AuthState
 import com.unimapp.common.extensions.onClick
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardingFragment : com.ingress.core.BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, com.unimapp.authorization.siginwithemail.AuthState, Unit>() {
+class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, AuthState, Unit>() {
 
     private var onboardingAdapter: OnboardingAdapter? = null
 

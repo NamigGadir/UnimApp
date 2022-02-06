@@ -7,7 +7,7 @@ import com.unimapp.common.extensions.fakeArrayListOf
 import com.unimapp.uitoolkit.R
 import com.unimapp.uitoolkit.extensions.addDivider
 import com.unimapp.uitoolkit.extensions.withSingleAdapter
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentSearchBinding
 import com.unimapp.unimapp.databinding.SearchListItemBinding
 import com.unimapp.unimapp.ui.main.home.HomePageState
@@ -15,7 +15,7 @@ import com.unimapp.unimapp.ui.main.home.HomePageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : com.ingress.core.BaseFragment<HomePageViewModel, FragmentSearchBinding, HomePageState, Unit>() {
+class SearchFragment : BaseFragment<HomePageViewModel, FragmentSearchBinding, HomePageState, Unit>() {
 
     override fun getViewModelClass() = HomePageViewModel::class.java
 

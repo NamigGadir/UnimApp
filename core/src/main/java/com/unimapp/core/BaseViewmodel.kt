@@ -1,4 +1,4 @@
-package com.ingress.core
+package com.unimapp.core
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,7 +7,6 @@ import com.unimapp.domain.base.BaseUseCase
 import com.unimapp.domain.base.RemoteResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 abstract class BaseViewModel<State, Event> : ViewModel() {
 

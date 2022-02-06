@@ -1,6 +1,6 @@
 package com.unimapp.authorization.setpassword
 
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.validators.CharacterValidator
 import com.unimapp.domain.validators.UpperCaseValidator
 import dagger.hilt.android.lifecycle.HiltViewModel

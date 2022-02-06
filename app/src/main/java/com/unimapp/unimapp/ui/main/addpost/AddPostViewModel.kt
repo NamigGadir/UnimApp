@@ -1,7 +1,7 @@
 package com.unimapp.unimapp.ui.main.addpost
 
 import androidx.lifecycle.viewModelScope
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.data.repository.linkretriever.LinkRetrieverRepository
 import com.unimapp.domain.entities.linkretriever.LinkRetrieverResult
 import com.unimapp.domain.validators.UrlValidator

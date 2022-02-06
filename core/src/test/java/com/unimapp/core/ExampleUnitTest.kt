@@ -1,4 +1,4 @@
-package com.ingress.core
+package com.unimapp.core
 
 import org.junit.Test
 
