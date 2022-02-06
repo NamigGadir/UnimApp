@@ -49,7 +49,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
     override fun onStateUpdate(state: SignUpState) {
         when (state) {
             is SignUpState.InitialValues -> {
-                viewmodel.updateInterestsBottomSheet()
+                viewmodel.updateInitialValues()
             }
         }
     }
@@ -155,7 +155,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
         withBinding {
             specialitySelector.setOnClickListener {
                 simpleSingleSelectorBottomSheet {
-                    itemList = viewmodel.degrees
+                    itemList = viewmodel.faculties
                     dialogTitle = getString(R.string.academic_degree)
                     onItemsSelected {
 

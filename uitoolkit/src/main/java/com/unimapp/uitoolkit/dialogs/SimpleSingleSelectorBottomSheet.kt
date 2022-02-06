@@ -64,7 +64,7 @@ class SimpleSingleSelectorBottomSheet(
         val view: RadioButton = LayoutInflater.from(requireContext()).inflate(R.layout.unim_radio_button, null) as RadioButton
         view.layoutParams = RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, RadioGroup.LayoutParams.WRAP_CONTENT)
         view.text = item.itemTitle
-        view.id = item.itemId
+        view.id = item.itemId.toInt()
         return view
     }
 
@@ -93,7 +93,7 @@ class SimpleSingleSelectorBottomSheet(
     }
 
     data class Item(
-        val itemId: Int,
+        val itemId: Long,
         val itemTitle: String,
         var isSelected: Boolean
     )
