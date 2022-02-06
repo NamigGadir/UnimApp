@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_16sdp"
         tools:context="com.unimapp.authorization.signup.SignUpFragment">
 
 

@@ -1,5 +1,6 @@
 package com.unimapp.authorization.signup
 
+import android.text.Editable
 import androidx.lifecycle.viewModelScope
 import com.unimapp.core.BaseViewModel
 import com.unimapp.authorization.R
@@ -9,6 +10,7 @@ import com.unimapp.domain.entities.auth.University
 import com.unimapp.domain.usecases.GetFacultiesUseCase
 import com.unimapp.domain.usecases.GetInterestsUseCase
 import com.unimapp.domain.usecases.GetUniversitiesUseCase
+import com.unimapp.domain.validators.EmailValidator
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
 import com.unimapp.uitoolkit.tagview.TagItem
@@ -22,7 +24,8 @@ import javax.inject.Inject
 class SignUpViewModel @Inject constructor(
     private val getInterestsUseCase: GetInterestsUseCase,
     private val getUniversitiesUseCase: GetUniversitiesUseCase,
-    private val getFacultiesUseCase: GetFacultiesUseCase
+    private val getFacultiesUseCase: GetFacultiesUseCase,
+    private val emailValidator: EmailValidator
 ) : BaseViewModel<SignUpState, Unit>() {
 
     var interests: List<SimpleMultiSelectorBottomSheet.Item> = arrayListOf()
@@ -126,6 +129,10 @@ class SignUpViewModel @Inject constructor(
                 text = it.itemTitle
             }
         }.plus(plusTag)
+    }
+
+    fun isEmailValid(text: String): Boolean {
+        return emailValidator.isValid(text)
     }
 }
 

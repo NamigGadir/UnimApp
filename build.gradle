@@ -3,6 +3,7 @@ apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
     ext.nav_version = "2.3.5"
+    ext.kotlin_version = "1.6.10"
     repositories {
         google()
         mavenCentral()
@@ -10,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.4'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.39.0'
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
