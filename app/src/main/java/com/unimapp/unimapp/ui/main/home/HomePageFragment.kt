@@ -14,7 +14,7 @@ import com.unimapp.unimapp.databinding.FragmentHomePageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomePageFragment : com.ingress.core.BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
+class HomePageFragment : BaseFragment<HomePageViewModel, FragmentHomePageBinding, HomePageState, Unit>(), FeedAdapter.FeedAdapterActionListener {
 
     override fun getViewModelClass() = HomePageViewModel::class.java
 

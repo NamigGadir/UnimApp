@@ -1,6 +1,8 @@
 package com.unimapp.unimapp.ui.main.profile
 
 import com.ingress.core.BaseViewModel
+import com.unimapp.domain.entities.profile.About
+import com.unimapp.domain.entities.profile.AboutType
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.tagview.TagItem
 import com.unimapp.uitoolkit.tagview.tagItem
@@ -11,6 +13,13 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor() : BaseViewModel<ProfileState, Unit>() {
 
     val interests by lazy { getInterestList() }
+
+    val abouts by lazy { getAboutList() }
+
+    private fun getAboutList() = arrayListOf(
+        About(1, "Worked as Software Engineer", AboutType.WORK),
+        About(2, "Worked as Architect Engineer", AboutType.WORK)
+    )
 
     private fun getInterestList() = arrayListOf(
         SimpleMultiSelectorBottomSheet.Item(1, "Art", false),
@@ -30,9 +39,19 @@ class ProfileViewModel @Inject constructor() : BaseViewModel<ProfileState, Unit>
             }
         }
     }
+
+    fun getAbout(): List<About> {
+        return abouts.map { about ->
+            About(
+                aboutId = about.aboutId,
+                aboutTitle = about.aboutTitle,
+                aboutType = about.aboutType
+            )
+        }
+    }
 }
 
 
-sealed class ProfileState{
-
+sealed class ProfileState {
+    class AboutList(val abouts: List<About>) : ProfileState()
 }

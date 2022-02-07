@@ -9,5 +9,6 @@
         android:id="@+id/profilePageFragment"
         android:name="com.unimapp.unimapp.ui.main.profile.ProfileFragment"
         android:label="fragment_profile_page"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile"/>
+
 </navigation>

@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.ingress.core.BaseFragment
 import com.unimapp.common.extensions.asColorResource
+import com.unimapp.domain.entities.profile.About
 import com.unimapp.uitoolkit.adapters.SimpleViewpagerAdapter
 import com.unimapp.uitoolkit.databinding.TablayoutCustomTapBinding
 import com.unimapp.uitoolkit.tagview.TagItem
@@ -19,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ProfileFragment :
-    BaseFragment<ProfileViewModel, FragmentProfileBinding, ProfileState, Unit>() {
+    BaseFragment<ProfileViewModel, FragmentProfileBinding, ProfileState, Unit>(), ProfileAdapter.ProfileActionListener {
 
     private val fragments by lazy {
         listOf(AboutFragment(), ProfileActivityFragment())
@@ -82,7 +84,6 @@ class ProfileFragment :
                         R.color.tab_unselected_color.asColorResource(requireContext())
                     )
                 }
-
                 override fun onTabReselected(tab: TabLayout.Tab) {}
             })
         }
@@ -107,4 +108,5 @@ class ProfileFragment :
         val title: String,
         val textColor: Int,
     )
+
 }

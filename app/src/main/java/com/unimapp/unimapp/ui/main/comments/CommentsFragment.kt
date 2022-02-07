@@ -12,7 +12,7 @@ import com.unimapp.unimapp.databinding.FragmentCommentsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CommentsFragment : com.ingress.core.BaseFragment<CommentsViewModel, FragmentCommentsBinding, CommentState, Unit>() {
+class CommentsFragment : BaseFragment<CommentsViewModel, FragmentCommentsBinding, CommentState, Unit>() {
     private val adapter by lazy { CommentsAdapter() }
 
     override fun getViewModelClass() = CommentsViewModel::class.java
