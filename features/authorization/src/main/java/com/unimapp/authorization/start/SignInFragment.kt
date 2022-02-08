@@ -24,6 +24,9 @@ class SignInFragment : BaseFragment<SignInViewModel, FragmentSignInBinding, Auth
             findNavController().navigate(R.id.action_signInFragment_to_signInWithEmailFragment)
         }
         signUp.underline()
+        signUp.setOnClickListener {
+            findNavController().navigate(R.id.action_signInWithEmailFragment_to_signUpFragment)
+        }
     }
 
     override fun onStateUpdate(state: AuthState) {

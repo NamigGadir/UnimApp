@@ -8,7 +8,7 @@ interface BaseUseCase<T, R> {
 
     suspend operator fun invoke(input: T): RemoteResponse<R> {
         return try {
-            RemoteResponse.Success(call(input).result.content)
+            RemoteResponse.Success(call(input).result)
         } catch (httpException: HttpException) {
             RemoteResponse.NetworkError(httpException.code(), httpException)
         } catch (e: Exception) {

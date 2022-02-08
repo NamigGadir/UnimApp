@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
@@ -16,6 +17,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
     lateinit var binding: VB
 
     protected abstract fun getViewModelClass(): Class<ViewModel>
+
+    private val progressDialog: CustomProgressDialog by lazy { CustomProgressDialog(requireContext()) }
 
     open fun onStateUpdate(state: State) {}
 
@@ -60,10 +63,24 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
         viewmodel.errorHandler.observe(viewLifecycleOwner) {
             it
         }
+        viewmodel.handleProgressBar.observe(viewLifecycleOwner, Observer {
+            if(it)
+                showProgressBar()
+            else
+                hideProgressBar()
+        })
     }
 
     inline fun <R> withBinding(block: VB.() -> R): R {
         return binding.block()
+    }
+
+    private fun hideProgressBar() {
+        progressDialog.dismiss()
+    }
+
+    private fun showProgressBar() {
+        progressDialog.show()
     }
 
 }

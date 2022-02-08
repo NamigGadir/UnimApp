@@ -1,17 +1,19 @@
 package com.unimapp.unimapp.ui.onboarding
 
-import com.unimapp.core.BaseViewModel
 import com.unimapp.authorization.siginwithemail.AuthState
-import com.unimapp.domain.repository.OnBoardingRepository
+import com.unimapp.core.BaseViewModel
+import com.unimapp.domain.usecases.onboarding.SetOnBoardingFinishedUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
-    private val onBoardingRepository: OnBoardingRepository
+    private val setOnBoardingFinishedUseCase: SetOnBoardingFinishedUseCase
 ) : BaseViewModel<AuthState, Unit>() {
 
     fun setOnBoardingLookStatus(status: Boolean) {
-        onBoardingRepository.setOnBoardingLookStatus(status)
+        launch {
+            setOnBoardingFinishedUseCase.call(SetOnBoardingFinishedUseCase.Params(status))
+        }
     }
 }

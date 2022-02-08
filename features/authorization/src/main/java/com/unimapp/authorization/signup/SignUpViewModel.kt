@@ -1,15 +1,13 @@
 package com.unimapp.authorization.signup
 
-import android.text.Editable
 import androidx.lifecycle.viewModelScope
-import com.unimapp.core.BaseViewModel
 import com.unimapp.authorization.R
-import com.unimapp.domain.entities.auth.Faculty
-import com.unimapp.domain.entities.auth.Interest
-import com.unimapp.domain.entities.auth.University
+import com.unimapp.core.BaseViewModel
+import com.unimapp.domain.entities.auth.*
 import com.unimapp.domain.usecases.GetFacultiesUseCase
 import com.unimapp.domain.usecases.GetInterestsUseCase
 import com.unimapp.domain.usecases.GetUniversitiesUseCase
+import com.unimapp.domain.usecases.SetRegisterUseCase
 import com.unimapp.domain.validators.EmailValidator
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
@@ -25,7 +23,7 @@ class SignUpViewModel @Inject constructor(
     private val getInterestsUseCase: GetInterestsUseCase,
     private val getUniversitiesUseCase: GetUniversitiesUseCase,
     private val getFacultiesUseCase: GetFacultiesUseCase,
-    private val emailValidator: EmailValidator
+    private val emailValidator: EmailValidator,
 ) : BaseViewModel<SignUpState, Unit>() {
 
     var interests: List<SimpleMultiSelectorBottomSheet.Item> = arrayListOf()
@@ -93,13 +91,12 @@ class SignUpViewModel @Inject constructor(
         return arrayListOf()
     }
 
-    private fun getDegreesList() = arrayListOf(
-        SimpleSingleSelectorBottomSheet.Item(1, "Bachelor", false),
-        SimpleSingleSelectorBottomSheet.Item(2, "Master", true),
-        SimpleSingleSelectorBottomSheet.Item(3, "Doctor", false),
-    )
+    private fun getDegreesList() =
+        DegreeTypes.values().map {
+            SimpleSingleSelectorBottomSheet.Item(it.index, it.type, false)
+        }
 
-    private fun getYearsList() = (2012..2022).map {
+    private fun getYearsList() = (2022 downTo 1970).map {
         SimpleSingleSelectorBottomSheet.Item(it, it.toString(), false)
     }
 
@@ -134,8 +131,12 @@ class SignUpViewModel @Inject constructor(
     fun isEmailValid(text: String): Boolean {
         return emailValidator.isValid(text)
     }
-}
 
+    fun getSelectedDegreeType(selectedDegree: SimpleSingleSelectorBottomSheet.Item?): String? {
+        return DegreeTypes.findById(selectedDegree?.itemId)?.type
+    }
+
+}
 
 sealed class SignUpState {
     data class InitialValues(val interestList: List<Interest>, val universities: List<University>, val faculties: List<Faculty>) : SignUpState()
