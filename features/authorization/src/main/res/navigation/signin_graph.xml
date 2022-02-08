@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_in_graph"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.unimapp.authorization.start.SignInFragment"
+        tools:layout="@layout/fragment_sign_in"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signInWithEmailFragment"
+            app:destination="@id/authorization_graph" />
+        <action
+            android:id="@+id/action_signInWithEmailFragment_to_signUpFragment"
+            app:destination="@id/signup_graph" />
+
+    </fragment>
+
+    <include app:graph="@navigation/authorization_graph" />
+    <include app:graph="@navigation/signup_graph" />
+</navigation>

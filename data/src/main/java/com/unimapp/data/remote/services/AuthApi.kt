@@ -1,12 +1,16 @@
 package com.unimapp.data.remote.services
 
+import com.unimapp.domain.base.ApiResult
+import com.unimapp.domain.entities.auth.RegisterResponse
+import com.unimapp.domain.entities.auth.RegistrationRequest
+import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface AuthApi {
 
-    @POST("/v1/auth/login")
-    suspend fun login(): Any
-
+    @POST("/api/v1/auth/register")
+    suspend fun registerUser(@Body registrationRequest: RegistrationRequest, @Query("lang") lang: String): ApiResult<RegisterResponse>
 
 
 }

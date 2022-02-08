@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signup_graph"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.unimapp.authorization.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_setPasswordFragment"
+            app:destination="@id/setPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setPasswordFragment"
+        android:name="com.unimapp.authorization.setpassword.SetPasswordFragment"
+        android:label="fragment_set_password"
+        tools:layout="@layout/fragment_set_password" >
+        <argument
+            android:name="request_info"
+            app:argType="com.unimapp.domain.entities.auth.RegistrationRequest" />
+        <action
+            android:id="@+id/action_setPasswordFragment_to_signInWithEmailFragment"
+            app:destination="@id/authorization_graph"
+            app:popUpTo="@id/authorization_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <include app:graph="@navigation/authorization_graph" />
+
+</navigation>

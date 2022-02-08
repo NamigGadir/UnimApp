@@ -89,8 +89,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun findStartGraph(): Int {
         return when {
-            mainViewModel.isRegisteredUser() -> R.id.home_nav_graph
-            mainViewModel.isOnBoardFinished() -> R.id.authorization_graph
+            mainViewModel.isAuthTokenAvailable() -> R.id.home_nav_graph
+            mainViewModel.isRegisteredUser() -> R.id.authorization_graph
+            mainViewModel.isOnBoardFinished() -> R.id.sign_in_graph
             else -> R.id.onBoardingFragment
         }
     }

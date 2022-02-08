@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 
 @Keep
 class ApiResult<T>(
-    val result: ApiContent<T>
+    val result: T
 )
 
 @Keep

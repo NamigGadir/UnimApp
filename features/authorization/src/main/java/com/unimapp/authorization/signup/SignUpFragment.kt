@@ -9,12 +9,17 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
-import com.google.android.material.textfield.TextInputLayout
-import com.unimapp.core.BaseFragment
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.unimapp.authorization.R
 import com.unimapp.authorization.databinding.FragmentSignUpBinding
+import com.unimapp.authorization.siginwithemail.SignInWithEmailFragmentDirections
 import com.unimapp.common.extensions.*
+import com.unimapp.core.BaseFragment
+import com.unimapp.data.util.Constants
+import com.unimapp.domain.entities.auth.GenderTypes
+import com.unimapp.domain.entities.auth.RegistrationRequest
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.simpleMultiSelectorBottomSheet
@@ -53,6 +58,26 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
         acceptCheck.setOnCheckedChangeListener { buttonView, isChecked ->
             validateContinueButton()
         }
+        continueButton.setOnClickListener {
+            navigateToSetPassword()
+        }
+    }
+
+    private fun navigateToSetPassword() {
+        val registrationRequest = RegistrationRequest().apply {
+            firstName = binding.firstName.editText?.text.toString()
+            lastName = binding.lastname.editText?.text.toString()
+            emailAddress = binding.email.editText?.text.toString()
+            genderType = getSelectedGenderType()
+            birthDay = binding.birthdayInput.editText?.text.toString()
+            interestIds = viewmodel.interests.filter { it.isSelected }.map { it.itemId }
+            universityId = selectedUniversity?.itemId
+            degreeType = viewmodel.getSelectedDegreeType(selectedDegree)
+            facultyId = listOf(selectedFaculty?.itemId ?: -1)
+            startYear = selectedYear?.itemId
+            lang = Constants.DEFAULT_LANG
+        }
+        findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToSetPasswordFragment(registrationRequest))
     }
 
     private fun addTextChanges() {
@@ -252,6 +277,17 @@ class SignUpFragment : BaseFragment<SignUpViewModel, FragmentSignUpBinding, Sign
         selectedFaculty = it
         binding.specialitySelector.text = it.itemTitle
         validateContinueButton()
+    }
+
+    private fun getSelectedGenderType(): String? {
+        val radioButtonID: Int = binding.genderTypes.checkedRadioButtonId
+        val radioButton: View = binding.genderTypes.findViewById(radioButtonID)
+        return when (binding.genderTypes.indexOfChild(radioButton)) {
+            GenderTypes.MALE.index -> GenderTypes.MALE.type
+            GenderTypes.FEMALE.index -> GenderTypes.FEMALE.type
+            GenderTypes.OTHER.index -> GenderTypes.OTHER.type
+            else -> null
+        }
     }
 
 }

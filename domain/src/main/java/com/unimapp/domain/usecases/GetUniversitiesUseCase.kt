@@ -1,5 +1,6 @@
 package com.unimapp.domain.usecases
 
+import com.unimapp.domain.base.ApiContent
 import com.unimapp.domain.base.ApiResult
 import com.unimapp.domain.base.BaseUseCase
 import com.unimapp.domain.base.RemoteResponse
@@ -10,9 +11,9 @@ import javax.inject.Inject
 
 class GetUniversitiesUseCase @Inject constructor(
     private val authRepository: AuthRepository
-) : BaseUseCase<Unit, List<University>> {
+) : BaseUseCase<Unit, ApiContent<List<University>>> {
 
-    override suspend fun call(input: Unit): ApiResult<List<University>> {
-       return authRepository.getUniversities()
+    override suspend fun call(input: Unit): ApiResult<ApiContent<List<University>>> {
+        return authRepository.getUniversities()
     }
 }
