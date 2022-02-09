@@ -13,4 +13,5 @@ interface AuthRepository {
     suspend fun setAuthToken(authToken: String)
     fun getAuthToken(): String
     fun isUserRegistered(): Boolean
+    suspend fun loginUser(loginRequest: LoginRequest): ApiResult<LoginResponse>
 }

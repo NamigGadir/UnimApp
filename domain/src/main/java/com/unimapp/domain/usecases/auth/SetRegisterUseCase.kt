@@ -1,8 +1,7 @@
-package com.unimapp.domain.usecases
+package com.unimapp.domain.usecases.auth
 
 import com.unimapp.domain.base.ApiResult
 import com.unimapp.domain.base.BaseUseCase
-import com.unimapp.domain.base.RemoteResponse
 import com.unimapp.domain.entities.auth.*
 import com.unimapp.domain.repository.AuthRepository
 import javax.inject.Inject

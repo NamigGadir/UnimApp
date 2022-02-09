@@ -4,8 +4,8 @@ import androidx.lifecycle.viewModelScope
 import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.entities.auth.RegisterResponse
 import com.unimapp.domain.entities.auth.RegistrationRequest
-import com.unimapp.domain.usecases.SetRegisterUseCase
-import com.unimapp.domain.usecases.SetUserRegisteredUseCase
+import com.unimapp.domain.usecases.auth.SetRegisterUseCase
+import com.unimapp.domain.usecases.auth.SetUserRegisteredUseCase
 import com.unimapp.domain.validators.CharacterValidator
 import com.unimapp.domain.validators.UpperCaseValidator
 import dagger.hilt.android.lifecycle.HiltViewModel

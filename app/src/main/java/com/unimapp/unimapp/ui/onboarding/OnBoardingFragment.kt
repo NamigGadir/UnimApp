@@ -12,12 +12,11 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.unimapp.unimapp.R
 import com.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentOnboardingBinding
-import com.unimapp.authorization.siginwithemail.AuthState
 import com.unimapp.common.extensions.onClick
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, AuthState, Unit>() {
+class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingBinding, Unit, Unit>() {
 
     private var onboardingAdapter: OnboardingAdapter? = null
 
@@ -60,7 +59,7 @@ class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingB
 
     private fun navigateToSingIn() {
         viewmodel.setOnBoardingLookStatus(true)
-        findNavController().navigate(R.id.action_onBoardingFragment_to_authorization_graph)
+        findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToSignInGraph())
     }
 
     private fun setOnboadingIndicator() {
@@ -108,10 +107,6 @@ class OnBoardingFragment : BaseFragment<OnBoardingViewModel, FragmentOnboardingB
         onBoardingItems.add(itemPayOnline)
         onBoardingItems.add(itemEatTogether)
         onboardingAdapter = OnboardingAdapter(onBoardingItems)
-    }
-
-    override fun onStateUpdate(state: com.unimapp.authorization.siginwithemail.AuthState) {
-
     }
 
 }

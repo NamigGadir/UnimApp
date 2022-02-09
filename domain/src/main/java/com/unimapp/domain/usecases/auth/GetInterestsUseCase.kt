@@ -1,4 +1,4 @@
-package com.unimapp.domain.usecases
+package com.unimapp.domain.usecases.auth
 
 import com.unimapp.domain.base.ApiContent
 import com.unimapp.domain.base.ApiResult

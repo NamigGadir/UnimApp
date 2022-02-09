@@ -1,4 +1,4 @@
-package com.unimapp.domain.usecases
+package com.unimapp.domain.usecases.auth
 
 import com.unimapp.domain.base.BaseSuspendCallUseCase
 import com.unimapp.domain.repository.AuthRepository
