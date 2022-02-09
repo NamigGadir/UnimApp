@@ -47,4 +47,8 @@ class AuthRepositoryImpl @Inject constructor(
     override fun getAuthToken(): String {
         return authenticationPreferences.getToken()
     }
+
+    override suspend fun loginUser(loginRequest: LoginRequest): ApiResult<LoginResponse> {
+        return authApi.loginUser(loginRequest)
+    }
 }

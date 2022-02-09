@@ -6,13 +6,12 @@ import androidx.navigation.fragment.findNavController
 import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.R
 import com.unimapp.authorization.databinding.FragmentSignInBinding
-import com.unimapp.authorization.siginwithemail.AuthState
 import com.unimapp.common.extensions.onClick
 import com.unimapp.common.extensions.underline
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInFragment : BaseFragment<SignInViewModel, FragmentSignInBinding, AuthState, Unit>() {
+class SignInFragment : BaseFragment<SignInViewModel, FragmentSignInBinding, Unit, Unit>() {
 
     override fun getViewModelClass() = SignInViewModel::class.java
 
@@ -29,8 +28,5 @@ class SignInFragment : BaseFragment<SignInViewModel, FragmentSignInBinding, Auth
         }
     }
 
-    override fun onStateUpdate(state: AuthState) {
-
-    }
 
 }

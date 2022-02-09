@@ -8,17 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.snackbar.Snackbar
+import com.unimapp.authorization.R
 import com.unimapp.core.BaseFragment
 import com.unimapp.authorization.databinding.SignInWithEmailFragmentBinding
 import com.unimapp.common.extensions.dp
+import com.unimapp.common.extensions.toast
 import com.unimapp.common.extensions.underline
+import com.unimapp.core.DeeplinkNavigationTypes
+import com.unimapp.core.deeplinkNavigate
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.logging.Handler
 
 
 @AndroidEntryPoint
 class SignInWithEmailFragment :
-    BaseFragment<SignInWithEmailViewModel, SignInWithEmailFragmentBinding, AuthState, Unit>() {
+    BaseFragment<SignInWithEmailViewModel, SignInWithEmailFragmentBinding, Unit, SignInEvent>() {
 
     override fun getViewModelClass() = SignInWithEmailViewModel::class.java
 
@@ -29,22 +37,42 @@ class SignInWithEmailFragment :
     override val onViewInit: SignInWithEmailFragmentBinding.() -> Unit = {
         forgotPassword.underline()
         signInButton.setOnClickListener {
-            viewmodel.signIn()
+            viewmodel.signIn(editLogin.text.toString(), editPassword.text.toString())
         }
-
+        editLogin.doOnTextChanged { text, start, before, count ->
+            validate()
+        }
+        editPassword.doOnTextChanged { text, start, before, count ->
+            validate()
+        }
+        android.os.Handler().postDelayed({
+            onSignIn(true)
+        }, 3000)
     }
 
-    override fun onStateUpdate(state: AuthState) {
-        when (state) {
-            is AuthState.SignInState -> {
-                onSignIn(state.isLoggedIn)
-            }
-        }
-    }
-
-    fun onSignIn(isSuccess: Boolean) {
+    private fun onSignIn(isSuccess: Boolean) {
         withBinding {
-            if (isSuccess) "LoggedIn" else createToast(incorrectSingInMessage)
+            if (isSuccess) navigateToHome() else createToast(incorrectSingInMessage)
+        }
+    }
+
+    private fun navigateToHome() {
+        findNavController().deeplinkNavigate(DeeplinkNavigationTypes.HOME_PAGE)
+    }
+
+    private fun validate() {
+        withBinding {
+            viewmodel.validateInput(editLogin.text.toString(), editPassword.text.toString())
+        }
+    }
+
+    override fun onEventUpdate(event: SignInEvent) {
+        when (event) {
+            is SignInEvent.SignInValidator -> binding.signInButton.isEnabled = event.isCharacterValid
+                    && event.isEmailValid
+                    && event.isSymbolValid
+                    && event.isUpperCaseValid
+            is SignInEvent.SignInResultEvent -> onSignIn(event.isLoggedIn)
         }
     }
 

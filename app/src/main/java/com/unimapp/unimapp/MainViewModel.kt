@@ -1,9 +1,8 @@
 package com.unimapp.unimapp
 
 import com.unimapp.core.BaseViewModel
-import com.unimapp.domain.repository.OnBoardingRepository
-import com.unimapp.domain.usecases.GetAuthTokenUseCase
-import com.unimapp.domain.usecases.GetRegistrationFinishedUseCase
+import com.unimapp.domain.usecases.auth.GetAuthTokenUseCase
+import com.unimapp.domain.usecases.auth.GetRegistrationFinishedUseCase
 import com.unimapp.domain.usecases.onboarding.GetOnBoardingFinishedUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

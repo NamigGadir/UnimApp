@@ -11,11 +11,8 @@
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
-            android:id="@+id/action_onBoardingFragment_to_authorization_graph"
-            app:destination="@id/authorization_graph"
-            app:launchSingleTop="true"
-            app:popUpTo="@+id/nav_graph"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_onBoardingFragment_to_sign_in_graph"
+            app:destination="@id/sign_in_graph" />
     </fragment>
     <include app:graph="@navigation/authorization_graph" />
     <include app:graph="@navigation/home_nav_graph" />

@@ -4,10 +4,9 @@ import androidx.lifecycle.viewModelScope
 import com.unimapp.authorization.R
 import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.entities.auth.*
-import com.unimapp.domain.usecases.GetFacultiesUseCase
-import com.unimapp.domain.usecases.GetInterestsUseCase
-import com.unimapp.domain.usecases.GetUniversitiesUseCase
-import com.unimapp.domain.usecases.SetRegisterUseCase
+import com.unimapp.domain.usecases.auth.GetFacultiesUseCase
+import com.unimapp.domain.usecases.auth.GetInterestsUseCase
+import com.unimapp.domain.usecases.auth.GetUniversitiesUseCase
 import com.unimapp.domain.validators.EmailValidator
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
 import com.unimapp.uitoolkit.dialogs.SimpleSingleSelectorBottomSheet
