@@ -45,9 +45,6 @@ class SignInWithEmailFragment :
         editPassword.doOnTextChanged { text, start, before, count ->
             validate()
         }
-        android.os.Handler().postDelayed({
-            onSignIn(true)
-        }, 3000)
     }
 
     private fun onSignIn(isSuccess: Boolean) {

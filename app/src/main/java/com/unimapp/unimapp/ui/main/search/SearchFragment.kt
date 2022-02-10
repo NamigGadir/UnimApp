@@ -10,8 +10,8 @@ import com.unimapp.uitoolkit.extensions.withSingleAdapter
 import com.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentSearchBinding
 import com.unimapp.unimapp.databinding.SearchListItemBinding
-import com.unimapp.unimapp.ui.main.home.HomePageState
-import com.unimapp.unimapp.ui.main.home.HomePageViewModel
+import com.unimapp.home.home.HomePageState
+import com.unimapp.home.home.HomePageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
