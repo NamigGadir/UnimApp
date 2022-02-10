@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Add Post Strings-->
+    <string name="drafts_button">Drafts</string>
+    <string name="post_button">Post</string>
+    <string name="tag_students">Tag Students</string>
+    <string name="clear_all">Clear all</string>
+    <string name="done">Done</string>
+    <string name="tagged_peers">Tagged Peers</string>
+    <string name="recent_tags">Recents</string>
+    <string name="peers">Peers</string>
+    <!-- End region-->
+
+    <!-- Add Post Strings-->
+    <string name="with_feed">with</string>
+    <string name="reaction_star">Like</string>
+    <string name="reaction_comment">Comment</string>
+    <string name="reaction_spread">Spread</string>
+    <string name="feed_show_more">Show more</string>
+    <string name="feed_show_less">Show less</string>
+
+    <string name="view_replies"> View %1$d replies</string>
+    <string name="hide_replies"> Hide Replies</string>
+    <string name="comment_post">Post</string>
+    <string name="comment_to_post">Comment to the post…</string>
+
+    <!-- End region-->
+</resources>

@@ -8,3 +8,7 @@ plugins {
 }
 apply from: "$rootDir/feature_deps.gradle"
 
+dependencies {
+    implementation "com.github.pgreze:android-reactions:1.6"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+}

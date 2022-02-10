@@ -54,6 +54,7 @@ dependencies {
 
     //Features
     implementation(project("::features:authorization"))
+    implementation(project("::features:home"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
@@ -77,7 +78,6 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation "com.github.pgreze:android-reactions:1.6"
 
 
 

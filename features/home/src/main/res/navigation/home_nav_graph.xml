@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.unimapp.home.home.HomePageFragment"
+        tools:layout="@layout/fragment_home_page">
+        <action
+            android:id="@+id/action_homePageFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="unimapp://home_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.unimapp.home.comments.CommentsFragment"
+        tools:layout="@layout/fragment_comments" />
+
+    <fragment
+        android:id="@+id/tagFriendFragment"
+        tools:layout="@layout/fragment_tag_friend"
+        android:name="com.unimapp.home.tagfriend.TagFriendFragment"
+        android:label="TagFriendFragment" />
+</navigation>
