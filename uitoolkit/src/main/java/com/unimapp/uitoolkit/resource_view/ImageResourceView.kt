@@ -1,6 +1,7 @@
 package com.unimapp.uitoolkit.resource_view
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -40,13 +41,15 @@ class ImageResourceView @JvmOverloads constructor(
         binding.closeImage.setOnClickListener {
             onDeleteClicked?.invoke()
         }
-        imageResource?.let {
-            binding.mainImage.setImageResource(it)
-        }
+
     }
 
     fun setOnDeleteClicked(onDeleteClicked: () -> Unit) {
         this.onDeleteClicked = onDeleteClicked
+    }
+
+    fun setImageResource(imageUri: Uri) {
+        binding.mainImage.setImageResource(R.drawable.profile_image)
     }
 
 }

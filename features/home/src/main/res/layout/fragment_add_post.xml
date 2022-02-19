@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:srcCompat="@drawable/ic_close" />
 
 
@@ -23,9 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:padding="0dp"
         android:insetTop="0dp"
         android:insetBottom="4dp"
+        android:padding="0dp"
         android:text="@string/drafts_button"
         android:textColor="@color/unim_main_color"
         app:layout_constraintBottom_toBottomOf="@+id/post_button"
@@ -35,10 +35,10 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/post_button"
         style="@style/Unim_Round_Button_Small"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:gravity="center"
         android:insetTop="0dp"
-        android:layout_marginTop="@dimen/_8sdp"
         android:insetBottom="4dp"
         android:text="@string/post_button"
         android:textSize="@dimen/text_size_16sp"
@@ -70,34 +70,35 @@
             android:layout_height="wrap_content"
             tools:context="com.unimapp.addpost.com.unimapp.home.AddPostFragment">
 
-            <EditText
+            <com.unimapp.uitoolkit.input.CutCopyPasteEditText
                 android:id="@+id/status"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:autoLink="web"
                 android:background="@null"
                 android:gravity="top"
-                android:autoLink="web"
-                android:textColorLink="@color/unim_main_color"
                 android:hint="Write your status"
                 android:maxLines="5"
                 android:padding="@dimen/_16sdp"
+                android:textColorLink="@color/unim_main_color"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.unimapp.uitoolkit.resource_view.ImageResourceView
-                android:id="@+id/single_image_view"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/single_image_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_24sdp"
-                android:visibility="gone"
-                app:image="@drawable/ic_gallery"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="@+id/status"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/status"
-                app:layout_constraintVertical_bias="1.0" />
-
+                tools:itemCount="6"
+                tools:listitem="@layout/add_post_image_list_item" />
 
             <com.unimapp.uitoolkit.resource_view.FileResourceView
                 android:id="@+id/single_document_view"
@@ -120,11 +121,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_16sdp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/status"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/status"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
