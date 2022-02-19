@@ -1,13 +1,24 @@
 package com.unimapp.data.repository.feed
 
+import com.unimapp.data.remote.services.FeedApi
+import com.unimapp.domain.base.ApiResult
 import com.unimapp.domain.entities.feed.*
 import com.unimapp.domain.repository.FeedRepository
 import kotlinx.coroutines.flow.flow
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class FeedRepositoryImpl @Inject constructor() : FeedRepository {
+class FeedRepositoryImpl @Inject constructor(
+    private val feedApi: FeedApi
+) : FeedRepository {
     override fun loadFeed() = flow {
         emit(list)
     }
@@ -16,6 +27,12 @@ class FeedRepositoryImpl @Inject constructor() : FeedRepository {
         emit(
             comments
         )
+    }
+
+    override suspend fun uploadImage(file: File): UploadImageResponse {
+        val requestFile: RequestBody = file.asRequestBody("multipart/form-data".toMediaType())
+        val body: MultipartBody.Part = MultipartBody.Part.createFormData("file", file.name, requestFile)
+        return feedApi.uploadFile(body)
     }
 
     private val comments = listOf(
@@ -41,13 +58,13 @@ class FeedRepositoryImpl @Inject constructor() : FeedRepository {
         )
 
     private val reactionlist = listOf(
-        FeedReaction("Namig", FeedReactionType.STAR,AddFriendType.IS_FRIEND),
-        FeedReaction("Namig", FeedReactionType.STAR,AddFriendType.IS_REQUEST_AVAILABLE),
-        FeedReaction("Namig", FeedReactionType.ANGRY,AddFriendType.IS_REQUESTED),
-        FeedReaction("Namig", FeedReactionType.ANGRY,AddFriendType.IS_FRIEND),
-        FeedReaction("Namig", FeedReactionType.LOVE,AddFriendType.IS_FRIEND),
-        FeedReaction("Namig", FeedReactionType.LOVE,AddFriendType.IS_FRIEND),
-        FeedReaction("Namig", FeedReactionType.LOVE,AddFriendType.IS_FRIEND),
+        FeedReaction("Namig", FeedReactionType.STAR, AddFriendType.IS_FRIEND),
+        FeedReaction("Namig", FeedReactionType.STAR, AddFriendType.IS_REQUEST_AVAILABLE),
+        FeedReaction("Namig", FeedReactionType.ANGRY, AddFriendType.IS_REQUESTED),
+        FeedReaction("Namig", FeedReactionType.ANGRY, AddFriendType.IS_FRIEND),
+        FeedReaction("Namig", FeedReactionType.LOVE, AddFriendType.IS_FRIEND),
+        FeedReaction("Namig", FeedReactionType.LOVE, AddFriendType.IS_FRIEND),
+        FeedReaction("Namig", FeedReactionType.LOVE, AddFriendType.IS_FRIEND),
     )
 
     private val list = listOf<Feed>(
