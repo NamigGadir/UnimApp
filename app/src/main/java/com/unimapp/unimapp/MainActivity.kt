@@ -64,7 +64,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomMenuCustomLayout() {
-        showAddPostFragment()
         with(mainActivityMainBinding) {
             val bottomMenuView = bottomNavigationMenu.getChildAt(0) as BottomNavigationMenuView
             //Add post menu

@@ -14,7 +14,7 @@ class GetFacultiesUseCase @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseUseCase<Unit, ApiContent<List<Faculty>>> {
 
-    override suspend fun call(input: Unit): ApiResult<ApiContent<List<Faculty>>> {
-       return authRepository.getFaculties()
+    override suspend fun call(input: Unit): ApiContent<List<Faculty>> {
+        return authRepository.getFaculties().result
     }
 }

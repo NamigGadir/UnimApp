@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import java.io.File
 
 interface FeedRepository {
-    fun loadFeed(): Flow<List<Feed>>
     fun loadComments(): Flow<List<Comment>>
     suspend fun uploadImage(file: File): UploadImageResponse
+    suspend fun getFeedList(): List<Feed>
 }

@@ -1,24 +1,18 @@
 package com.unimapp.domain.entities.feed
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import com.unimapp.domain.entities.remote.FeedUser
 
 class Feed(
     val feedId: Long,
-//    val feedMessage: String,
+    val feedCaption: String,
     val feedType: FeedType,
-    var feedReactions: List<FeedReaction>
+    var feedReactions: List<FeedReaction>,
+    val feedCommentCount: Int,
+    val feedSharedCount: Int,
+    val feedLikeCount: Int,
+    val createdAt: Long,
+    val feedUser: FeedUser?
 )
-
-//class FeedUser(
-//    val username: String,
-//    val userSpeciality: String,
-//    val userUniversity: String,
-//    val userDate: String,
-//    val userImage: String,
-//    val childUsers: List<String>
-//)
-//
 
 data class FeedReaction(
     val reactionUser: String,
@@ -51,6 +45,17 @@ enum class FeedType {
     DOC,
     LINK,
     SINGLE_IMAGE,
-    MULTIPLE_IMAGE
+    MULTIPLE_IMAGE;
+
+    companion object {
+        fun getFeedType(feedType: String): FeedType {
+            values().forEach {
+                if (it.name == feedType)
+                    return it
+            }
+            return SIMPLE
+        }
+    }
+
 }
 
