@@ -18,7 +18,9 @@
     <string name="notification_activity">Activity</string>
     <string name="notification_peers">Peers</string>
     <string name="notification_opportunity">Opportunity</string>
-
+    <string name="profile_activity">Activity</string>
+    <string name="profile_about">About</string>
     <!-- End region-->
+
 
 </resources>

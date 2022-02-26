@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profile_nav_graph"
-    app:startDestination="@id/homePageFragment">
+    app:startDestination="@id/profilePageFragment">
 
     <fragment
-        android:id="@+id/homePageFragment"
-        android:name="com.unimapp.home.home.HomePageFragment"
-        android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" />
+        android:id="@+id/profilePageFragment"
+        android:name="com.unimapp.unimapp.ui.main.profile.ProfileFragment"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile"/>
 
 </navigation>

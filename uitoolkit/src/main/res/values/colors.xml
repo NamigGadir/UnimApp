@@ -22,6 +22,7 @@
     <color name="unim_divider_color">#F2F2F2</color>
     <color name="tab_unselected_color">#A8A9AD</color>
     <color name="tab_count_color">#A8A9AD</color>
+    <color name="profile_skill_color">#E5E6EB</color>
 
 
 </resources>
