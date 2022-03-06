@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -12,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.unimapp.common.extensions.gone
 import com.unimapp.common.extensions.show
+import com.unimapp.profile.ProfileFragment
 import com.unimapp.unimapp.databinding.ActivityMainBinding
 import com.unimapp.unimapp.databinding.AddPostLayoutBinding
 import com.unimapp.unimapp.databinding.MyProfileLayoutBinding
@@ -32,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             R.id.setPasswordFragment,
             R.id.addPostFragment,
             R.id.tagFriendFragment,
-            R.id.commentsFragment
+            R.id.commentsFragment,
+            R.id.peersFragment
         )
     }
 
@@ -105,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         navController.navigate(R.id.addPostFragment)
     }
 
-    private fun showProfileFragment(){
+    private fun showProfileFragment() {
         navController.navigate(R.id.profile_nav_graph)
     }
 }

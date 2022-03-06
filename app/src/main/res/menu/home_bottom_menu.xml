@@ -13,5 +13,6 @@
         android:id="@+id/notifications_nav_graph"
         android:icon="@drawable/ic_notification_menu"
         android:title="" />
-    <item android:title="" />
+    <item android:title=""
+        android:id="@+id/profile_nav_graph"/>
 </menu>

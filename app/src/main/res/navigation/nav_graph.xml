@@ -30,4 +30,5 @@
             app:destination="@id/tagFriendFragment" />
     </fragment>
 
+
 </navigation>

@@ -1,6 +1,6 @@
-package com.unimapp.unimapp.ui.main.profile
+package com.unimapp.profile
 
-import com.ingress.core.BaseViewModel
+import com.unimapp.core.BaseViewModel
 import com.unimapp.domain.entities.profile.About
 import com.unimapp.domain.entities.profile.AboutType
 import com.unimapp.uitoolkit.dialogs.SimpleMultiSelectorBottomSheet
@@ -12,9 +12,9 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor() : BaseViewModel<ProfileState, Unit>() {
 
-    val interests by lazy { getInterestList() }
+    private val interests by lazy { getInterestList() }
 
-    val abouts by lazy { getAboutList() }
+    private val abouts by lazy { getAboutList() }
 
     private fun getAboutList() = arrayListOf(
         About(1, "Worked as Software Engineer", AboutType.WORK),

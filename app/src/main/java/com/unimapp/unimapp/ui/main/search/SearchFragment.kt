@@ -9,9 +9,9 @@ import com.unimapp.uitoolkit.extensions.addDivider
 import com.unimapp.uitoolkit.extensions.withSingleAdapter
 import com.unimapp.core.BaseFragment
 import com.unimapp.unimapp.databinding.FragmentSearchBinding
-import com.unimapp.unimapp.databinding.SearchListItemBinding
 import com.unimapp.home.home.HomePageState
 import com.unimapp.home.home.HomePageViewModel
+import com.unimapp.uitoolkit.databinding.UserListItemBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +27,7 @@ class SearchFragment : BaseFragment<HomePageViewModel, FragmentSearchBinding, Ho
         searchResultList.withSingleAdapter(
             list,
             bindingCallback = { viewGroup: ViewGroup?, attachToParent: Boolean ->
-                SearchListItemBinding.inflate(LayoutInflater.from(context), viewGroup, attachToParent)
+                UserListItemBinding.inflate(LayoutInflater.from(context), viewGroup, attachToParent)
             }, onBindView = { data ->
                 data
             }, onItemClick = {

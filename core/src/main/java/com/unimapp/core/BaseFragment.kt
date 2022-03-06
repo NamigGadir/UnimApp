@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBinding, State, Event> : Fragment() {
@@ -43,6 +46,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = onViewBinding(inflater, container, false)
+        binding.root.findViewWithTag<Toolbar>("toolbar")?.let {
+            NavigationUI.setupWithNavController(it, findNavController())
+        }
         return binding.root
     }
 
@@ -64,7 +70,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel<State, Event>, VB : ViewBi
             it
         }
         viewmodel.handleProgressBar.observe(viewLifecycleOwner, Observer {
-            if(it)
+            if (it)
                 showProgressBar()
             else
                 hideProgressBar()

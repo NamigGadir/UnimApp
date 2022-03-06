@@ -3,21 +3,20 @@ package com.unimapp.unimapp.ui.main.profile.about
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.ingress.core.BaseFragment
+import com.unimapp.core.BaseFragment
 import com.unimapp.domain.entities.profile.About
 import com.unimapp.domain.entities.profile.AboutType
-import com.unimapp.uitoolkit.extensions.addDivider
 import com.unimapp.unimapp.databinding.FragmentAboutBinding
 import com.unimapp.unimapp.ui.main.profile.ProfileAdapter
-import com.unimapp.unimapp.ui.main.profile.ProfileState
-import com.unimapp.unimapp.ui.main.profile.ProfileViewModel
+import com.unimapp.profile.ProfileState
+import com.unimapp.profile.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AboutFragment : BaseFragment<ProfileViewModel, FragmentAboutBinding, ProfileState, Unit>() {
+class AboutFragment : BaseFragment<com.unimapp.profile.ProfileViewModel, FragmentAboutBinding, com.unimapp.profile.ProfileState, Unit>() {
 
     private val adapter by lazy { ProfileAdapter(viewmodel.getAbout()) }
-    override fun getViewModelClass() = ProfileViewModel::class.java
+    override fun getViewModelClass() = com.unimapp.profile.ProfileViewModel::class.java
     override val onViewBinding: (LayoutInflater, ViewGroup?, Boolean) -> FragmentAboutBinding
         get() = FragmentAboutBinding::inflate
 
@@ -39,9 +38,9 @@ class AboutFragment : BaseFragment<ProfileViewModel, FragmentAboutBinding, Profi
         aboutRecyclerView.adapter = adapter
     }
 
-    override fun onStateUpdate(state: ProfileState) {
+    override fun onStateUpdate(state: com.unimapp.profile.ProfileState) {
         when (state) {
-            is ProfileState.AboutList -> {
+            is com.unimapp.profile.ProfileState.AboutList -> {
                 showAbout(state.abouts)
             }
         }

@@ -9,8 +9,11 @@
     <color name="unim_correct">#2CBC4C</color>
     <color name="unim_wrong">#F10E0E</color>
     <color name="unim_bottom_menu_unactive_color">#BE2B221B</color>
-    <color name="dark_gray">#9BA9A6</color>
+    <color name="unim_text_2">#22150B</color>
     <color name="stroke_color">#2B221B</color>
+
+
+    <color name="dark_gray">#9BA9A6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="feed_divider_color">#DADADA</color>
