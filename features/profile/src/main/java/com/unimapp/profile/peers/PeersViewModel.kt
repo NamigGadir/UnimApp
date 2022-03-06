@@ -19,22 +19,22 @@ class PeersViewModel : BaseViewModel<PeersState, Unit>() {
 
     private val list = listOf<UserInfo>(
         UserInfo(
-            "Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
+            "123","Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
         ),
         UserInfo(
-            "Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
+            "123","Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
         ),
         UserInfo(
-            "Idrak Atakisili", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
+            "123","Idrak Atakisili", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
         ),
         UserInfo(
-            "Shahmal Quliyev", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
+            "123","Shahmal Quliyev", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
         ),
         UserInfo(
-            "Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
+            "123","Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
         ),
         UserInfo(
-            "Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
+            "123","Namig Qadirov", "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jeff_Bell_profile_photo.jpg", "Aytisnik", "Qafqaz University"
         )
     )
 
