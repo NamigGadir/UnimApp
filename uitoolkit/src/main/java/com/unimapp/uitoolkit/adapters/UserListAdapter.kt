@@ -8,7 +8,11 @@ import com.unimapp.common.extensions.show
 import com.unimapp.uitoolkit.base.BaseAdapter
 import com.unimapp.uitoolkit.databinding.UserListItemBinding
 
-class UserListAdapter : BaseAdapter<UserInfo, UserListAdapter.UserListHolder>() {
+class UserListAdapter : BaseAdapter<UserInfo, UserListAdapter.UserListHolder>(
+    areContentsTheSame = { oldItem, newItem ->
+        oldItem.userId == newItem.userId
+    }
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListHolder {
         return UserListHolder(UserListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -43,6 +47,7 @@ class UserListAdapter : BaseAdapter<UserInfo, UserListAdapter.UserListHolder>() 
 }
 
 data class UserInfo(
+    val userId: String,
     val userName: String,
     val userImage: String,
     val userSpeciality: String,

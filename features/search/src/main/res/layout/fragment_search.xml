@@ -7,7 +7,7 @@
     android:layout_marginTop="@dimen/_8sdp"
     android:layout_marginStart="@dimen/_8sdp"
     android:layout_marginEnd="@dimen/_8sdp"
-    tools:context=".ui.main.search.SearchFragment">
+    tools:context="com.unimapp.search.SearchFragment">
 
     <com.unimapp.uitoolkit.search.CustomSearchView
         android:id="@+id/customSearchView"
@@ -21,6 +21,7 @@
         android:id="@+id/search_result_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
