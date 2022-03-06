@@ -13,7 +13,7 @@ class GetUniversitiesUseCase @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseUseCase<Unit, ApiContent<List<University>>> {
 
-    override suspend fun call(input: Unit): ApiResult<ApiContent<List<University>>> {
-        return authRepository.getUniversities()
+    override suspend fun call(input: Unit): ApiContent<List<University>> {
+        return authRepository.getUniversities().result
     }
 }

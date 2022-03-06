@@ -4,11 +4,11 @@ import retrofit2.HttpException
 
 interface BaseUseCase<T, R> {
 
-    suspend fun call(input: T): ApiResult<R>
+    suspend fun call(input: T): R
 
     suspend operator fun invoke(input: T): RemoteResponse<R> {
         return try {
-            RemoteResponse.Success(call(input).result)
+            RemoteResponse.Success(call(input))
         } catch (httpException: HttpException) {
             RemoteResponse.NetworkError(httpException.code(), httpException)
         } catch (e: Exception) {

@@ -7,6 +7,7 @@ import com.unimapp.domain.base.BaseUseCase
 import com.unimapp.domain.base.RemoteResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -77,6 +78,22 @@ abstract class BaseViewModel<State, Event> : ViewModel() {
     fun launch(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch(handler) {
             block()
+        }
+    }
+
+
+    suspend fun <T> launchWithAsync(
+        loadingHandle: (Boolean) -> Unit = ::showLoading,
+        errorHandle: (exception: Throwable, errorCode: Int) -> Unit = ::handleError,
+        block: () -> List<Deferred<T>>
+    ) {
+        try {
+            loadingHandle(true)
+            block().map { it.await() }
+        } catch (t: Throwable) {
+            errorHandle(t, 0)
+        } finally {
+            loadingHandle(false)
         }
     }
 }

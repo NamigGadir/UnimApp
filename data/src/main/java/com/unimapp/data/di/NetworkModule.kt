@@ -2,6 +2,7 @@ package com.unimapp.data.di
 
 import com.unimapp.data.BuildConfig
 import com.unimapp.data.remote.services.AuthApi
+import com.unimapp.data.remote.services.FeedApi
 import com.unimapp.data.remote.services.MdServicesApi
 import com.unimapp.data.util.Constants
 import dagger.Module
@@ -61,4 +62,8 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideMdApi(retrofit: Retrofit): MdServicesApi = retrofit.create(MdServicesApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideFeedApi(retrofit: Retrofit): FeedApi = retrofit.create(FeedApi::class.java)
 }

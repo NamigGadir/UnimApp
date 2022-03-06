@@ -12,7 +12,7 @@ class GetInterestsUseCase @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseUseCase<Unit, ApiContent<List<Interest>>> {
 
-    override suspend fun call(input: Unit): ApiResult<ApiContent<List<Interest>>> {
-       return authRepository.getInterests()
+    override suspend fun call(input: Unit): ApiContent<List<Interest>> {
+        return authRepository.getInterests().result
     }
 }

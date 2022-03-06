@@ -54,6 +54,13 @@ fun View.addBorder(@ColorRes solidColor: Int? = null, @ColorRes strokeColor: Int
     background = border
 }
 
+fun View.addCorners(@ColorRes solidColor: Int? = null, radius: FloatArray? = null) {
+    val border = GradientDrawable()
+    solidColor?.let { border.setColor(ContextCompat.getColor(context, solidColor)) }
+    radius?.let { border.cornerRadii = radius }
+    background = border
+}
+
 fun ViewBinding.getString(@StringRes stringResourceId: Int): String {
     return root.context.getString(stringResourceId)
 }

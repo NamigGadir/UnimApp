@@ -49,13 +49,13 @@ class SignUpViewModel @Inject constructor(
             var facultiesRemote: List<Faculty> = arrayListOf()
             listOf(
                 async(handler) {
-                    interestRemote = getInterestsUseCase.call(Unit).result.content
+                    interestRemote = getInterestsUseCase.call(Unit).content
                 },
                 async(handler) {
-                    universitiesRemote = getUniversitiesUseCase.call(Unit).result.content
+                    universitiesRemote = getUniversitiesUseCase.call(Unit).content
                 },
                 async(handler) {
-                    facultiesRemote = getFacultiesUseCase.call(Unit).result.content
+                    facultiesRemote = getFacultiesUseCase.call(Unit).content
                 }).map {
                 it.await()
             }
