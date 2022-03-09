@@ -1,0 +1,8 @@
+<resources>
+    <string name="notifications_toolbar_title">Notifications</string>
+    <string name="button_text_accept">Accept</string>
+    <string name="button_text_cancel">Cancel</string>
+    <string name="liked_comment_item_text">liked your comment:</string>
+    <string name="commented_post_item_text">commented to your post:</string>
+    <string name="empty"> </string>
+</resources>

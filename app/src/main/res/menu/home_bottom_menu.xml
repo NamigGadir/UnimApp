@@ -10,7 +10,7 @@
         android:title="" />
     <item android:title="" />
     <item
-        android:id="@+id/notifications_nav_graph"
+        android:id="@+id/notifications_navgraph"
         android:icon="@drawable/ic_notification_menu"
         android:title="" />
     <item android:title="" />
