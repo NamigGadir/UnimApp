@@ -17,9 +17,11 @@
     <include app:graph="@navigation/authorization_graph" />
     <include app:graph="@navigation/home_nav_graph" />
    <include app:graph="@navigation/search_nav_graph" />
-    <include app:graph="@navigation/notifications_nav_graph" />
+    <include app:graph="@navigation/search_nav_graph" />
     <include app:graph="@navigation/profile_nav_graph" />
     <include app:graph="@navigation/signin_graph" />
+    <include app:graph="@navigation/notifications_navgraph" />
+
     <fragment
         android:id="@+id/addPostFragment"
         android:name="com.unimapp.home.addpost.AddPostFragment"

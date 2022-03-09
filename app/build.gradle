@@ -55,6 +55,7 @@ dependencies {
     //Features
     implementation(project("::features:authorization"))
     implementation(project("::features:home"))
+    implementation(project("::features:notifications"))
     implementation(project("::features:profile"))
     implementation(project("::features:search"))
 

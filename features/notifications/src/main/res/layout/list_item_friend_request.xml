@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/_64sdp"
+        android:layout_height="@dimen/_64sdp"
+        android:src="@drawable/profile_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/user_name"
+        style="@style/Unim_Text_18sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_24sdp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Orxan AZM"
+        android:textColor="@color/unim_text_color_3"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="@+id/profile_image" />
+
+    <TextView
+        android:id="@+id/study_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:text="Sophomore"
+        android:textColor="@color/unim_main_color"
+        android:textSize="@dimen/text_size_9sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/accept_button"
+        app:layout_constraintStart_toStartOf="@+id/user_name"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+    <View
+        android:id="@+id/divider_one"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:background="@color/unim_message_color"
+        app:layout_constraintBottom_toBottomOf="@id/study_level"
+        app:layout_constraintStart_toEndOf="@id/study_level"
+        app:layout_constraintTop_toTopOf="@id/study_level" />
+
+    <TextView
+        android:id="@+id/speciality_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:text="Computer Science"
+        android:textColor="@color/unim_main_color"
+        android:textSize="@dimen/text_size_9sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/study_level"
+        app:layout_constraintStart_toEndOf="@id/divider_one"
+        app:layout_constraintTop_toTopOf="@id/study_level" />
+
+    <View
+        android:id="@+id/divider_two"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:background="@color/unim_message_color"
+        app:layout_constraintBottom_toBottomOf="@id/study_level"
+        app:layout_constraintStart_toEndOf="@id/speciality_level"
+        app:layout_constraintTop_toTopOf="@id/study_level" />
+
+    <TextView
+        android:id="@+id/university"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:text="Khazar University"
+        android:textColor="@color/unim_main_color"
+        android:textSize="@dimen/text_size_9sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/study_level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/divider_two"
+        app:layout_constraintTop_toTopOf="@id/study_level" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/accept_button"
+        style="@style/Unim_Round_Button_Small"
+        android:layout_width="0dp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:text="@string/button_text_accept"
+        android:textSize="@dimen/text_size_12sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/study_level" />
+
+    <View
+        android:id="@+id/guideline"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/accept_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/user_name"
+        app:layout_constraintTop_toTopOf="@+id/accept_button" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancel_button"
+        style="@style/Unim_Round_Button_Small"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:background="@drawable/roundy_button_border"
+        android:text="@string/button_text_cancel"
+        android:textColor="@color/unim_text_color_3"
+        android:textSize="@dimen/text_size_12sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/study_level"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
