@@ -53,5 +53,10 @@ class CustomSearchView @JvmOverloads constructor(
         mOnSearchAction = onSearch
     }
 
+    fun setText(searchQuote: String) {
+        binding.searchTitle.setText(searchQuote)
+        binding.searchTitle.setSelection(searchQuote.length)
+    }
+
 
 }

@@ -23,4 +23,10 @@
         <attr name="link" format="string" />
         <attr name="link_image" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="InputWithHeaderView">
+        <attr name="header" format="string" />
+        <attr name="input_text" format="string" />
+        <attr name="input_hint" format="string" />
+    </declare-styleable>
 </resources>
