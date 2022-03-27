@@ -6,6 +6,8 @@
     <color name="unim_active_color">#EFA412</color>
     <color name="unim_placeholder_color">#E0DCCF</color>
     <color name="unim_blue_main_color">#1250EF</color>
+    <color name="unim_blue_color">#1383EA</color>
+
     <color name="unim_correct">#2CBC4C</color>
     <color name="unim_wrong">#F10E0E</color>
     <color name="unim_bottom_menu_unactive_color">#BE2B221B</color>

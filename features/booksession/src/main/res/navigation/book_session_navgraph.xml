@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/book_session_navgraph"
+    app:startDestination="@id/bookSessionFragment">
+
+    <fragment
+        android:id="@+id/bookSessionFragment"
+        android:name="com.unimapp.booksession.BookSessionFragment"
+        android:label="fragment_book_session"
+        tools:layout="@layout/fragment_book_session" />
+</navigation>

@@ -51,13 +51,14 @@ dependencies {
     implementation(project("::data"))
     implementation(project("::domain"))
     implementation(project("::uitoolkit"))
+    implementation(project("::uitoolkit"))
 
     //Features
     implementation(project("::features:authorization"))
     implementation(project("::features:home"))
     implementation(project("::features:notifications"))
     implementation(project("::features:profile"))
-    implementation(project("::features:search"))
+    implementation(project("::features:booksession"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'

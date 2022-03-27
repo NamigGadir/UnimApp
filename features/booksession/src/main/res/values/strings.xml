@@ -1,0 +1,14 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="book_mentorship_session_easily">Book 1:1 mentorship session easily</string>
+    <string name="the_duration_of_session_will_be_30_minutes">The duration of session will be 30 minutes</string>
+    <string name="session_will_be_on_Zoom_video_call">Session will be on Zoom video call</string>
+    <string name="session_link_will_be_sent_to_your_email">Session link will be sent to your email</string>
+    <string name="session"> $5.99 / session </string>
+    <string name="please_be_prepared_to_ask_your_questions">Please be prepared to ask your questions from mentor for keeping the effectiveness of the session</string>
+    <string name="continue_button"> Continue </string>
+    <string name="Terms_of_Service_and_Privacy_Policy"> Terms of Service and Privacy Policy </string>
+
+
+</resources>

@@ -98,6 +98,19 @@
         <item name="android:textColor">@color/stroke_color</item>
     </style>
 
+    <style name="Unim_Text_16sp_bold_no_black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Unim_Text_32sp_bold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="Unim_Text_18sp">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_18sp</item>
@@ -118,6 +131,10 @@
     </style>
 
     <style name="Unim_Text_24sp_Blue" parent="Unim_Text_24sp">
+        <item name="android:textColor">@color/unim_main_color</item>
+    </style>
+
+    <style name="Unim_Text_12sp_Blue" parent="Unim_Text_24sp">
         <item name="android:textColor">@color/unim_main_color</item>
     </style>
 
